@@ -1,5 +1,4 @@
 import 'package:csera_app/screens/Dashboard.dart';
-import 'package:csera_app/screens/course_details/cyber_security.dart';
 import 'package:flutter/material.dart';
 
 void main() {

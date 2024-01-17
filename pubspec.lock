@@ -48,7 +48,6 @@ packages:
       sha256: ee67cb0715911d28db6bf4af1026078bd6f0128b07a5f66fb2ed94ec6783c09a
       url: "https://pub.dev"
     source: hosted
-<<<<<<< HEAD
     version: "1.17.2"
   crypto:
     dependency: transitive
@@ -58,9 +57,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.3"
-=======
     version: "1.18.0"
->>>>>>> b133e84ea33a6e1cb36f5f4173aef49c8df8e6f7
   cupertino_icons:
     dependency: "direct main"
     description:
