@@ -169,7 +169,7 @@ class _DashboardScreenState extends State<DashboardScreen>
                   title: 'Amazon',
                   onTap: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => cyberdetail()));
+                        MaterialPageRoute(builder: (context) => CyberDetail()));
                   }),
               SizedBox(
                 height: 10,

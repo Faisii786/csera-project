@@ -1,67 +1,314 @@
-import 'package:csera_app/utility/colors.dart';
+import 'package:csera_app/utility/text_data.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class cyberdetail extends StatefulWidget {
-  const cyberdetail({super.key});
+class CyberDetail extends StatefulWidget {
+  const CyberDetail({super.key});
 
   @override
-  State<cyberdetail> createState() => _cyberdetailState();
+  State<CyberDetail> createState() => _CyberDetailState();
 }
 
-class _cyberdetailState extends State<cyberdetail> {
+class _CyberDetailState extends State<CyberDetail> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: Scaffold(
-      body: Container(
-        child: CustomScrollView(
-          slivers: [
-            SliverAppBar(
-              backgroundColor: AppColors().BgColor,
-              expandedHeight: 300,
-              pinned: true,
-              flexibleSpace: FlexibleSpaceBar(
-                expandedTitleScale: 1,
-                titlePadding:
-                    const EdgeInsets.symmetric(vertical: 25, horizontal: 10),
-                background: Opacity(
-                  opacity: 0.9,
-                  child: Image.asset(
-                    'assets/images/amzanon.png',
-                    fit: BoxFit.cover,
+      child: Scaffold(
+        body: Container(
+          child: CustomScrollView(
+            slivers: [
+              SliverAppBar(
+                //backgroundColor: AppColors().BgColor,
+                backgroundColor: Colors.white,
+                expandedHeight: 300,
+                pinned: true,
+                flexibleSpace: FlexibleSpaceBar(
+                  expandedTitleScale: 1,
+                  titlePadding:
+                      const EdgeInsets.symmetric(vertical: 25, horizontal: 10),
+                  background: Opacity(
+                    opacity: 0.9,
+                    child: Image.asset(
+                      'assets/images/amazon.png',
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
-            ),
-            SliverToBoxAdapter(
-              child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const SizedBox(
-                      height: 9,
-                    ),
-                    Text(
-                      "About Cyber Security",
-                      style: GoogleFonts.anekLatin(
-                          fontSize: 30, fontWeight: FontWeight.bold),
-                    ),
-                    Container(
-                      width: double.infinity,
-                      child: Text(
-                        "Csera, our esteemed company specializing in cybersecurity, is dedicated to providing an extensive and thorough training program that equips individuals with the skills needed to navigate the complex landscape of digital security. Our comprehensive course spans a spectrum of crucial aspects, starting from the nuanced realm of threat detection to the strategic intricacies of risk mitigation. Participants in our program delve into the intricacies of cyber defense, gaining valuable insights into the latest threats and vulnerabilities prevalent in today's interconnected world. We take pride in molding cyber sentinels who are not only adept at identifying potential risks but also proficient in implementing effective countermeasures to protect valuable digital assets. At Csera, we believe in empowering our learners to not just understand cybersecurity concepts but to apply them effectively in real-world scenarios. Join us on a transformative journey, where you emerge not just as a participant but as a guardian of digital landscapes, well-versed in the art and science of cybersecurity.Csera, our esteemed company specializing in cybersecurity, is dedicated to providing an extensive and thorough training program that equips individuals with the skills needed to navigate the complex landscape of digital security. Our comprehensive course spans a spectrum of crucial aspects, starting from the nuanced realm of threat detection to the strategic intricacies of risk mitigation. Participants in our program delve into the intricacies of cyber defense, gaining valuable insights into the latest threats and vulnerabilities prevalent in today's interconnected world. We take pride in molding cyber sentinels who are not only adept at identifying potential risks but also proficient in implementing effective countermeasures to protect valuable digital assets. At Csera, we believe in empowering our learners to not just understand cybersecurity concepts but to apply them effectively in real-world scenarios. Join us on a transformative journey, where you emerge not just as a participant but as a guardian of digital landscapes, well-versed in the art and science of cybersecurity.",
-                        style: GoogleFonts.roboto(fontSize: 15),
+              SliverToBoxAdapter(
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(
+                        height: 10,
                       ),
-                    )
-                  ],
+                      Text(
+                        "About Cyber Security",
+                        style: GoogleFonts.anekLatin(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.blue,
+                        ),
+                      ),
+                      const SizedBox(height: 5),
+                      Container(
+                        width: double.infinity,
+                        child: Text(
+                          Descriptions().cyberDetailText,
+                          style: GoogleFonts.roboto(fontSize: 16),
+                        ),
+                      ),
+                      const SizedBox(height: 30),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              border: Border.all(
+                                color: Colors.blue,
+                                width: 4,
+                              ),
+                            ),
+                            child: CircleAvatar(
+                              radius: 40,
+                              // backgroundImage: AssetImage("assets/images/logo/png"),
+                            ),
+                          ),
+                          SizedBox(width: 20),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Trainer Name',
+                                  style: TextStyle(
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                                const SizedBox(height: 5),
+                                Text(
+                                  'Experience: 5 years',
+                                  style: TextStyle(
+                                      fontSize: 18, color: Colors.grey),
+                                ),
+                                const SizedBox(height: 5),
+                                Text(
+                                  'Speciality: Cyber Security',
+                                  style: TextStyle(
+                                      fontSize: 18, color: Colors.grey),
+                                ),
+                                const SizedBox(height: 5),
+                                Text(
+                                  'Skills: Networking, Encryption',
+                                  style: TextStyle(
+                                      fontSize: 18, color: Colors.grey),
+                                ),
+                                const SizedBox(height: 5),
+                                Text(
+                                  'Achievements: XYZ Certification',
+                                  style: TextStyle(
+                                      fontSize: 18, color: Colors.grey),
+                                ),
+                                Text(
+                                  'Email: trainer@email.com',
+                                  style: TextStyle(
+                                      fontSize: 18, color: Colors.grey),
+                                ),
+                                const SizedBox(height: 5),
+                                Text(
+                                  'Phone: +123 456 7890',
+                                  style: TextStyle(
+                                      fontSize: 18, color: Colors.grey),
+                                ),
+                                const SizedBox(height: 5),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 20),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'What You Will Learn',
+                            style: TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            ),
+                          ),
+                          ListTile(
+                            leading: Icon(
+                              Icons.check,
+                              color: Colors.green,
+                            ),
+                            title: Text(
+                              'Set goals',
+                              style:
+                                  TextStyle(fontSize: 18, color: Colors.grey),
+                            ),
+                          ),
+                          ListTile(
+                            leading: Icon(
+                              Icons.check,
+                              color: Colors.green,
+                            ),
+                            title: Text(
+                              'Select an in-demand skill',
+                              style:
+                                  TextStyle(fontSize: 18, color: Colors.grey),
+                            ),
+                          ),
+                          ListTile(
+                            leading: Icon(
+                              Icons.check,
+                              color: Colors.green,
+                            ),
+                            title: Text(
+                              'Sign up as a freelancer at different platforms',
+                              style:
+                                  TextStyle(fontSize: 18, color: Colors.grey),
+                            ),
+                          ),
+                          ListTile(
+                            leading: Icon(
+                              Icons.check,
+                              color: Colors.green,
+                            ),
+                            title: Text(
+                              'Create and manage an effective profile on freelance platforms',
+                              style:
+                                  TextStyle(fontSize: 18, color: Colors.grey),
+                            ),
+                          ),
+                          ListTile(
+                            leading: Icon(
+                              Icons.check,
+                              color: Colors.green,
+                            ),
+                            title: Text(
+                              'Search the right projects',
+                              style:
+                                  TextStyle(fontSize: 18, color: Colors.grey),
+                            ),
+                          ),
+                          ListTile(
+                            leading: Icon(
+                              Icons.check,
+                              color: Colors.green,
+                            ),
+                            title: Text(
+                              'Write a winning proposal',
+                              style:
+                                  TextStyle(fontSize: 18, color: Colors.grey),
+                            ),
+                          ),
+                          ListTile(
+                            leading: Icon(
+                              Icons.check,
+                              color: Colors.green,
+                            ),
+                            title: Text(
+                              'Manage a project once it is awarded',
+                              style:
+                                  TextStyle(fontSize: 18, color: Colors.grey),
+                            ),
+                          ),
+                          ListTile(
+                            leading: Icon(
+                              Icons.check,
+                              color: Colors.green,
+                            ),
+                            title: Text(
+                              'Communicate with the client effectively',
+                              style:
+                                  TextStyle(fontSize: 18, color: Colors.grey),
+                            ),
+                          ),
+                          ListTile(
+                            leading: Icon(
+                              Icons.check,
+                              color: Colors.green,
+                            ),
+                            title: Text(
+                              'Manage project payments (escrow, invoicing system)',
+                              style:
+                                  TextStyle(fontSize: 18, color: Colors.grey),
+                            ),
+                          ),
+                          ListTile(
+                            leading: Icon(
+                              Icons.check,
+                              color: Colors.green,
+                            ),
+                            title: Text(
+                              'Retain positive feedback',
+                              style:
+                                  TextStyle(fontSize: 18, color: Colors.grey),
+                            ),
+                          ),
+                          ListTile(
+                            leading: Icon(
+                              Icons.check,
+                              color: Colors.green,
+                            ),
+                            title: Text(
+                              'Retain existing clients',
+                              style:
+                                  TextStyle(fontSize: 18, color: Colors.grey),
+                            ),
+                          ),
+                          ListTile(
+                            leading: Icon(
+                              Icons.check,
+                              color: Colors.green,
+                            ),
+                            title: Text(
+                              'Use Forum and Communities',
+                              style:
+                                  TextStyle(fontSize: 18, color: Colors.grey),
+                            ),
+                          ),
+                          ListTile(
+                            leading: Icon(
+                              Icons.check,
+                              color: Colors.green,
+                            ),
+                            title: Text(
+                              'Manage portfolio',
+                              style:
+                                  TextStyle(fontSize: 18, color: Colors.grey),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Divider(),
+                      const SizedBox(height: 20),
+                      Center(
+                        child: Text(
+                          'CSERA PVT LTD',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.blue,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
-    ));
+    );
   }
 }
