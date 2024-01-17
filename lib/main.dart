@@ -1,6 +1,4 @@
-import 'package:csera_app/screens/course_details/cyber_security.dart';
 import 'package:flutter/material.dart';
-import 'CseraAboutSectionComplete/AnimatedContainers/AboutContainer.dart';
 import 'package:csera_app/screens/Dashboard.dart';
 
 void main() {
@@ -20,7 +18,6 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: DashboardScreen(),
-
     );
   }
 }

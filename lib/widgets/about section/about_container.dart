@@ -1,16 +1,17 @@
-import 'package:csera_app/CseraAboutSectionComplete/NavigationPages/joinNow.dart';
-import 'package:csera_app/CseraAboutSectionComplete/NavigationPages/whatisCsera.dart';
-import 'package:csera_app/CseraAboutSectionComplete/NavigationPages/whyCsera.dart';
+import 'package:csera_app/screens/about%20section/joinNow.dart';
+import 'package:csera_app/screens/about%20section/whatisCsera.dart';
+import 'package:csera_app/screens/about%20section/whyCsera.dart';
 import 'package:flutter/material.dart';
 
-import '../NavigationPages/whoCsera.dart';
+import '../../screens/about section/whoCsera.dart';
 
-class AnimatedContainerScreen extends StatefulWidget {
+class animatedContainers extends StatefulWidget {
   @override
-  _AnimatedContainerScreenState createState() => _AnimatedContainerScreenState();
+  _animatedContainersState createState() =>
+      _animatedContainersState();
 }
 
-class _AnimatedContainerScreenState extends State<AnimatedContainerScreen>
+class _animatedContainersState extends State<animatedContainers>
     with TickerProviderStateMixin {
   late AnimationController _controller1;
   late AnimationController _controller2;
@@ -100,56 +101,55 @@ class _AnimatedContainerScreenState extends State<AnimatedContainerScreen>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Center(child: Text('Animated Containers')),
-        backgroundColor: Colors.blue,
-      ),
-      body: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              // Row 1
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  buildAnimatedContainer(_containerColor1, _animation1, "assets/images/what-is-csera.png", () {
-                    // Add your navigation logic here
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => whatisCsera()));
-                  }),
-                  buildAnimatedContainer(_containerColor2, _animation2, "assets/images/what-is-csera.png", () {
-                    // Add your navigation logic here
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => whyCsera()));
-                  }),
-                ],
-              ),
-              SizedBox(height: 16),
-
-              // Row 2
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  buildAnimatedContainer(_containerColor3, _animation3, "assets/images/what-is-csera.png", () {
-                    // Add your navigation logic here
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => whoCsera()));
-                  }),
-                  buildAnimatedContainer(_containerColor4, _animation4, "assets/images/what-is-csera.png", () {
-                    // Add your navigation logic here
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => joinNow()));
-                  }),
-                ],
-              ),
-              SizedBox(height: 16),
-            ],
-          ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        // Row 1
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            buildAnimatedContainer(_containerColor1, _animation1,
+                "assets/images/what-is-csera.png", () {
+              // Add your navigation logic here
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => whatisCsera()));
+            }),
+            buildAnimatedContainer(_containerColor2, _animation2,
+                "assets/images/what-is-csera.png", () {
+              // Add your navigation logic here
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => whyCsera()));
+            }),
+          ],
         ),
-      ),
+        SizedBox(height: 16),
+
+        // Row 2
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            buildAnimatedContainer(_containerColor3, _animation3,
+                "assets/images/what-is-csera.png", () {
+              // Add your navigation logic here
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => whoCsera()));
+            }),
+            buildAnimatedContainer(_containerColor4, _animation4,
+                "assets/images/what-is-csera.png", () {
+              // Add your navigation logic here
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => joinNow()));
+            }),
+          ],
+        ),
+        SizedBox(height: 16),
+      ],
     );
   }
 
   // Widget for building Animated Container with Image and Navigation
-  Widget buildAnimatedContainer(Color color, Animation<Offset> animation, String imagePath, VoidCallback onTap) {
+  Widget buildAnimatedContainer(Color color, Animation<Offset> animation,
+      String imagePath, VoidCallback onTap) {
     return GestureDetector(
       onTap: onTap,
       child: SlideTransition(
