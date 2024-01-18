@@ -110,16 +110,16 @@ class _animatedContainersState extends State<animatedContainers>
           children: [
             buildAnimatedContainer(_containerColor1, _animation1,
                 "assets/images/what-is-csera.png", () {
-              // Add your navigation logic here
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => whatisCsera()));
-            }),
+                  // Add your navigation logic here
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => whatisCsera()));
+                }),
             buildAnimatedContainer(_containerColor2, _animation2,
                 "assets/images/what-is-csera.png", () {
-              // Add your navigation logic here
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => whyCsera()));
-            }),
+                  // Add your navigation logic here
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => whyCsera()));
+                }),
           ],
         ),
         SizedBox(height: 16),
@@ -130,16 +130,16 @@ class _animatedContainersState extends State<animatedContainers>
           children: [
             buildAnimatedContainer(_containerColor3, _animation3,
                 "assets/images/what-is-csera.png", () {
-              // Add your navigation logic here
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => whoCsera()));
-            }),
+                  // Add your navigation logic here
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => whoCsera()));
+                }),
             buildAnimatedContainer(_containerColor4, _animation4,
                 "assets/images/what-is-csera.png", () {
-              // Add your navigation logic here
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => joinNow()));
-            }),
+                  // Add your navigation logic here
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => joinNow()));
+                }),
           ],
         ),
         SizedBox(height: 16),

@@ -1,10 +1,11 @@
-import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/material.dart';
 
 class ImageCarousel extends StatelessWidget {
 
   final List<String> imageUrls = [
     'assets/images/amazon.png',
+    'assets/images/ai.png',
     'assets/images/cloud.jpg',
     'assets/images/cyber.jpg',
   ];

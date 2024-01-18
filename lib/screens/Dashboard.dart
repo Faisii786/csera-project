@@ -5,11 +5,9 @@ import 'package:csera_app/widgets/appbar%20section/drawer.dart';
 import 'package:csera_app/widgets/course%20section/c_detail.dart';
 import 'package:csera_app/widgets/course%20section/course_container.dart';
 import 'package:flutter/material.dart';
-import 'package:csera_app/widgets/appbar section/lists.dart';
 import 'package:csera_app/widgets/coursel.dart';
 import 'package:csera_app/widgets/about_text.dart';
 import 'package:csera_app/widgets/logo_container.dart';
-import 'package:csera_app/widgets/about section/about_container.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -24,6 +22,7 @@ class _DashboardScreenState extends State<DashboardScreen>
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: AppColors().AppBarColor,
           iconTheme: IconThemeData(
             color: Colors.white,
           ),
@@ -46,7 +45,7 @@ class _DashboardScreenState extends State<DashboardScreen>
                 ImageCarousel(),
                 logo_container(),
                 ClickMoreSection(),
-              animatedContainers(),
+               animatedContainers(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -339,6 +338,7 @@ class _DashboardScreenState extends State<DashboardScreen>
               ),
             ],
           ),
-        ));
+        ),
+    );
   }
 }
