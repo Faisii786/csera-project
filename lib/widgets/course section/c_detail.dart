@@ -53,20 +53,17 @@ class _CoursesDetailWidgetState extends State<CoursesDetailWidget> {
                     opacity: 0.9,
                     child: Image.asset(
                       widget.imageUrl,
-                      fit: BoxFit.cover,
+                      fit: BoxFit.contain,
                     ),
                   ),
                 ),
               ),
               SliverToBoxAdapter(
                 child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const SizedBox(
-                        height: 10,
-                      ),
                       Text(
                         widget.title,
                         style: GoogleFonts.anekLatin(
@@ -91,13 +88,14 @@ class _CoursesDetailWidgetState extends State<CoursesDetailWidget> {
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               border: Border.all(
-                                color: Colors.blue,
+                                color: Colors.grey,
                                 width: 4,
                               ),
                             ),
                             child: CircleAvatar(
-                              radius: 40,
-                              // backgroundImage: AssetImage("assets/images/logo/png"),
+                              radius: 50,
+                              backgroundImage:
+                                  AssetImage("assets/images/ai.png"),
                             ),
                           ),
                           SizedBox(width: 20),
@@ -115,38 +113,44 @@ class _CoursesDetailWidgetState extends State<CoursesDetailWidget> {
                                 ),
                                 const SizedBox(height: 5),
                                 Text(
-                                  widget.experience,
+                                  "Experience: " + widget.experience,
                                   style: TextStyle(
-                                      fontSize: 18, color: Colors.grey),
+                                      fontSize: 18,
+                                      color: Color.fromARGB(255, 77, 77, 77)),
                                 ),
                                 const SizedBox(height: 5),
                                 Text(
-                                  widget.speciality,
+                                  "Speciality: " + widget.speciality,
                                   style: TextStyle(
-                                      fontSize: 18, color: Colors.grey),
+                                      fontSize: 18,
+                                      color: Color.fromARGB(255, 77, 77, 77)),
                                 ),
                                 const SizedBox(height: 5),
                                 Text(
-                                  widget.skills,
+                                  "Skills: " + widget.skills,
                                   style: TextStyle(
-                                      fontSize: 18, color: Colors.grey),
+                                      fontSize: 18,
+                                      color: Color.fromARGB(255, 77, 77, 77)),
                                 ),
                                 const SizedBox(height: 5),
                                 Text(
-                                  widget.achievements,
+                                  "Achievements: " + widget.achievements,
                                   style: TextStyle(
-                                      fontSize: 18, color: Colors.grey),
+                                      fontSize: 18,
+                                      color: Color.fromARGB(255, 77, 77, 77)),
                                 ),
                                 Text(
-                                  widget.email,
+                                  "Email: " + widget.email,
                                   style: TextStyle(
-                                      fontSize: 18, color: Colors.grey),
+                                      fontSize: 18,
+                                      color: Color.fromARGB(255, 77, 77, 77)),
                                 ),
                                 const SizedBox(height: 5),
                                 Text(
-                                  widget.phone,
+                                  "Contact: " + widget.phone,
                                   style: TextStyle(
-                                      fontSize: 18, color: Colors.grey),
+                                      fontSize: 18,
+                                      color: Color.fromARGB(255, 77, 77, 77)),
                                 ),
                                 const SizedBox(height: 5),
                               ],
@@ -175,8 +179,10 @@ class _CoursesDetailWidgetState extends State<CoursesDetailWidget> {
                               ),
                               title: Text(
                                 point,
-                                style:
-                                    TextStyle(fontSize: 18, color: Colors.grey),
+                                style: TextStyle(
+                                    fontSize: 18,
+                                    color:
+                                        const Color.fromARGB(255, 77, 77, 77)),
                               ),
                             ),
                         ],
