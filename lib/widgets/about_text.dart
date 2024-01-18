@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../utility/colors.dart';
+
 class ClickMoreSection extends StatefulWidget {
   @override
   _ClickMoreSectionState createState() => _ClickMoreSectionState();
@@ -15,10 +17,11 @@ class _ClickMoreSectionState extends State<ClickMoreSection> {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
+          color: AppColors().AppBarColor,
           boxShadow: [
             BoxShadow(
               color: Colors.white24.withOpacity(0.5),
-              spreadRadius: 5,
+              spreadRadius: 2,
               blurRadius: 3,
               offset: Offset(0, 3),
             ),
@@ -30,8 +33,9 @@ class _ClickMoreSectionState extends State<ClickMoreSection> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text("About CsEra",style: TextStyle(
-                  fontSize: 30,
+                  fontSize: 24,
                   fontWeight: FontWeight.w600,
+                  color: Colors.white,
               ),),
               ExpandableText(
                 text:
@@ -78,11 +82,17 @@ class ExpandableText extends StatelessWidget {
             text,
             maxLines: isExpanded ? null : maxLines,
             overflow: TextOverflow.fade,
+            style: TextStyle(
+              color: Colors.white,
+            ),
           ),
           secondChild: Text(
             text.substring(0, text.indexOf(' ', 50)) + '...',
             maxLines: maxLines,
             overflow: TextOverflow.fade,
+            style: TextStyle(
+              color: Colors.white,
+            ),
           ),
           crossFadeState:
           isExpanded ? CrossFadeState.showFirst : CrossFadeState.showSecond,
@@ -94,7 +104,7 @@ class ExpandableText extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.only(top: 8.0),
             child: Text(
-              isExpanded ? 'Click to show less' : 'Click to show more',
+              isExpanded ? 'Hide' : 'More',
               style: TextStyle(color: Colors.blue),
             ),
           ),
