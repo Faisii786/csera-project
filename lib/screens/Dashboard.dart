@@ -218,7 +218,7 @@ class _DashboardScreenState extends State<DashboardScreen>
                       MaterialPageRoute(
                         builder: (context) => CoursesDetailWidget(
                           title: 'About Cyber Security',
-                          imageUrl: 'assets/images/cyber.jpg',
+                          imageUrl: 'assets/images/cyber_basics.png',
                           detailText: Descriptions().cyberDetailText,
                           trainerName: 'Riffat Razzaq',
                           experience: '5 years',
