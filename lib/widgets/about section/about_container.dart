@@ -101,49 +101,41 @@ class _animatedContainersState extends State<animatedContainers>
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        // Row 1
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            buildAnimatedContainer(_containerColor1, _animation1,
-                "assets/images/what-is-csera.png", () {
-                  // Add your navigation logic here
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => whatisCsera()));
-                }),
-            buildAnimatedContainer(_containerColor2, _animation2,
-                "assets/images/what-is-csera.png", () {
-                  // Add your navigation logic here
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => whyCsera()));
-                }),
-          ],
-        ),
-        SizedBox(height: 16),
-
-        // Row 2
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            buildAnimatedContainer(_containerColor3, _animation3,
-                "assets/images/what-is-csera.png", () {
-                  // Add your navigation logic here
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => whoCsera()));
-                }),
-            buildAnimatedContainer(_containerColor4, _animation4,
-                "assets/images/what-is-csera.png", () {
-                  // Add your navigation logic here
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => joinNow()));
-                }),
-          ],
-        ),
-        SizedBox(height: 16),
-      ],
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          // Row 1
+          buildAnimatedContainer(_containerColor1, _animation1,
+              "assets/images/what-is-csera.png", () {
+                // Add your navigation logic here
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => whatisCsera()));
+              }),
+          buildAnimatedContainer(_containerColor2, _animation2,
+              "assets/images/what-is-csera.png", () {
+                // Add your navigation logic here
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => whyCsera()));
+              }),
+          SizedBox(height: 16),
+          // Row 2
+          buildAnimatedContainer(_containerColor3, _animation3,
+              "assets/images/what-is-csera.png", () {
+                // Add your navigation logic here
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => whoCsera()));
+              }),
+          buildAnimatedContainer(_containerColor4, _animation4,
+              "assets/images/what-is-csera.png", () {
+                // Add your navigation logic here
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => joinNow()));
+              }),
+          SizedBox(height: 16),
+        ],
+      ),
     );
   }
 

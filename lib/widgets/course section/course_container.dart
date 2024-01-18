@@ -29,8 +29,8 @@ class CourseCard extends StatelessWidget {
           ),
         ],
       ),
-      width: 250,
-      height: 220,
+      width:300,
+      height: 250,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
