@@ -46,6 +46,7 @@ class _DashboardScreenState extends State<DashboardScreen>
                 ImageCarousel(),
                 logo_container(),
                 ClickMoreSection(),
+                animatedContainers(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
