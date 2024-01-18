@@ -114,11 +114,11 @@ class _AnimatedContainerScreenState extends State<AnimatedContainerScreen>
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  buildAnimatedContainer(_containerColor1, _animation1, "assets/images/what-is-csera.png", () {
+                  buildAnimatedContainer(_containerColor1, _animation1, "assets/images/what_csera.png", () {
                     // Add your navigation logic here
                     Navigator.push(context, MaterialPageRoute(builder: (context) => whatisCsera()));
                   }),
-                  buildAnimatedContainer(_containerColor2, _animation2, "assets/images/what-is-csera.png", () {
+                  buildAnimatedContainer(_containerColor2, _animation2, "assets/images/why_vcsera.png", () {
                     // Add your navigation logic here
                     Navigator.push(context, MaterialPageRoute(builder: (context) => whyCsera()));
                   }),

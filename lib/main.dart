@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'CseraAboutSectionComplete/AnimatedContainers/AboutContainer.dart';
 import 'package:csera_app/screens/Dashboard.dart';
 
+import 'CseraAboutSectionComplete/NavigationPages/whyCsera.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: DashboardScreen(),
+      home: AnimatedContainerScreen(),
 
     );
   }
