@@ -1,3 +1,4 @@
 class Descriptions{
   final String cyberDetailText = "Csera, our esteemed company specializing in cybersecurity, is dedicated to providing an extensive and thorough training program that equips individuals with the skills needed to navigate the complex landscape of digital security. At Csera, we believe in empowering our learners to not just understand cybersecurity concepts but to apply them effectively in real-world scenarios.";
+  final String aboutText = "CSERA Pioneering IT services and training, reshaping the digital landscape with cutting-edge solutions, comprehensive training, and unwavering commitment to excellence.";
 }

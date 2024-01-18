@@ -1,14 +1,13 @@
 import 'package:csera_app/utility/colors.dart';
 import 'package:csera_app/widgets/appbar%20section/drawer.dart';
 import 'package:csera_app/widgets/about%20section/about_container.dart';
-import 'package:csera_app/widgets/appbar%20section/drawer.dart';
 import 'package:flutter/material.dart';
-import 'package:csera_app/widgets/coursel.dart';
-import 'package:csera_app/widgets/about_text.dart';
-import 'package:csera_app/widgets/logo_container.dart';
-import 'package:csera_app/widgets/course_card.dart';
+import 'package:csera_app/widgets/slider_section/coursel.dart';
+import 'package:csera_app/widgets/slider_section/about_text.dart';
+import 'package:csera_app/widgets/slider_section/logo_container.dart';
+import 'package:csera_app/widgets/course%20section/trainer_detail.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-import '../widgets/course section/course_container.dart';
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
 
@@ -35,58 +34,39 @@ class _DashboardScreenState extends State<DashboardScreen>
             Icons.search,
             color: Colors.white,
           ),
-
-         
-          ],
-        ),
-        drawer: MyDrawer(),
+        ],
+      ),
+      drawer: MyDrawer(),
       backgroundColor: AppColors().BgColor,
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ImageCarousel(),
             ClickMoreSection(),
             animatedContainers(),
+            SizedBox(
+              height: 10,
+            ),
             Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    "Course offered",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-                  ),
-                  ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.deepPurple),
-                      onPressed: () {},
-                      child: const Text(
-                        "View All",
-                        style: TextStyle(color: Colors.white),
-                      ))
-                ],
+              padding: const EdgeInsets.only(right: 10, left: 10),
+              child: Text(
+                "Course offered",
+                style: GoogleFonts.roboto(
+                    fontWeight: FontWeight.bold, fontSize: 23),
               ),
             ),
             courses_cards(),
+            SizedBox(
+              height: 10,
+            ),
             Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    "Training Programs",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-                  ),
-                  ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.deepPurple),
-                      onPressed: () {},
-                      child: const Text(
-                        "View All",
-                        style: TextStyle(color: Colors.white),
-                      )),
-                ],
+              padding: const EdgeInsets.only(left: 10, right: 10),
+              child: Text(
+                "Training Programs",
+                style: GoogleFonts.roboto(
+                    fontWeight: FontWeight.bold, fontSize: 23),
               ),
             ),
             cousrse_card2(),
