@@ -53,7 +53,7 @@ class _CoursesDetailWidgetState extends State<CoursesDetailWidget> {
                     opacity: 0.9,
                     child: Image.asset(
                       widget.imageUrl,
-                      fit: BoxFit.contain,
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ),

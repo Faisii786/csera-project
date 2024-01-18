@@ -36,7 +36,7 @@ class _ClickMoreSectionState extends State<ClickMoreSection> {
               ExpandableText(
                 text:
                'About Company CSERA is an innovative IT services and training company committed to redefining the digital landscape. With a dedicated team of experts and a relentless commitment to excellence, we excel in delivering cutting-edge solutions and comprehensive training programs across various domains of information technology. Our core focus is on Cyber Security, Artificial Intelligence, Internet of things, and Block chain Services, where we offer an array of solutions to build and safeguard your digital assets. Along with these, we provide trainings and services in Digital Marketing, Software Development, Cloud Services, Graphic Designing, Web Development, network and infrastructure services and many more. Whether you need tailored digital marketing strategies, custom software solutions, cybersecurity defenses, blockchain innovations, or cloud technology implementations, we are your partner in this transformative journey. With a wide array of certifications available, individuals can acquire industry- recognized credentials in cybersecurity, programming and development, networking, blockchain, artificial intelligence, and cloud computing, making them highly skilled and competitive in the IT landscape. In a short span, we have made significant strides in transforming knowledge into expertise, helping businesses thrive and individuals prosper in this fast-paced digital era.',
-                maxLines: 2,
+                maxLines: 3,
                 isExpanded: isExpanded,
                 onTap: () {
                   setState(() {
