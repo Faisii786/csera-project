@@ -4,7 +4,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 class ImageCarousel extends StatelessWidget {
 
   final List<String> imageUrls = [
-    'assets/images/ceh.jpg',
+    'assets/images/ai.png',
     'assets/images/cloud.jpg',
     'assets/images/cyber.jpg',
   ];
