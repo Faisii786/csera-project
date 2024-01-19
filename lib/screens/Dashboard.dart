@@ -1,11 +1,12 @@
 import 'package:csera_app/utility/colors.dart';
 import 'package:csera_app/widgets/appbar%20section/drawer.dart';
 import 'package:csera_app/widgets/about%20section/about_container.dart';
+import 'package:csera_app/widgets/course%20section/training_cards.dart';
 import 'package:flutter/material.dart';
 import 'package:csera_app/widgets/slider_section/coursel.dart';
 import 'package:csera_app/widgets/slider_section/about_text.dart';
 import 'package:csera_app/widgets/slider_section/logo_container.dart';
-import 'package:csera_app/widgets/course%20section/trainer_detail.dart';
+import 'package:csera_app/widgets/course%20section/courses_cards.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -69,7 +70,7 @@ class _DashboardScreenState extends State<DashboardScreen>
                     fontWeight: FontWeight.bold, fontSize: 23),
               ),
             ),
-            cousrse_card2(),
+            training_cards(),
             logo_container(),
           ],
         ),

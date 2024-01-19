@@ -5,12 +5,12 @@ import 'package:csera_app/widgets/splash_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class SplashScreen extends StatefulWidget {
+class SecondSplashScreen extends StatefulWidget {
   @override
-  _SplashScreenState createState() => _SplashScreenState();
+  _SecondSplashScreenState createState() => _SecondSplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _SecondSplashScreenState extends State<SecondSplashScreen> {
   int _currentIndex = 0;
 
   List<Widget> screens = [
@@ -18,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
       imagePath: 'assets/images/learning.png',
       title: 'Start Learning',
       description:
-          'Start learning now by using this app, Get your choasen course and start the journey. Start today with Csera, where learning meets innovation.',
+          'Start learning now by using this app, Get your chosen course and start the journey. Start today with Csera, where learning meets innovation.',
     ),
     SplashPage(
       imagePath: 'assets/images/explore.png',
@@ -30,7 +30,7 @@ class _SplashScreenState extends State<SplashScreen> {
       imagePath: 'assets/images/time.png',
       title: 'At Any time.',
       description:
-          'Your courses is available at any time you want Join us now! Start today with Csera, where learning meets innovation.',
+          'Your courses are available at any time you want. Join us now! Start today with Csera, where learning meets innovation.',
     ),
     DashboardScreen(),
   ];
@@ -39,10 +39,6 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors().AppBarColor,
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: Colors.transparent,
-      ),
       body: Stack(
         alignment: Alignment.bottomCenter,
         children: [
@@ -58,34 +54,45 @@ class _SplashScreenState extends State<SplashScreen> {
               },
             ),
           ),
-          Positioned(
-            bottom: 50.0,
-            left: 0,
-            right: 0,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(
-                screens.length - 1,
-                (index) => buildDot(index),
+          if (_currentIndex == 2) // Check if on the third screen
+            Positioned(
+              bottom: 50.0,
+              left: 0,
+              right: 0,
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 10),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => DashboardScreen()));
+                  },
+                  child: Center(
+                    child: Text(
+                      "Skip",
+                      style: GoogleFonts.alatsi(
+                        color: Color.fromARGB(255, 206, 196, 196),
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
+                ),
               ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 10),
-            child: GestureDetector(
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => DashboardScreen()));
-              },
-              child: Text(
-                "Skip",
-                style: GoogleFonts.alatsi(
-                  color: Color.fromARGB(255, 206, 196, 196),
-                  fontSize: 18,
+            )
+          else
+            Positioned(
+              bottom: 50.0,
+              left: 0,
+              right: 0,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: List.generate(
+                  screens.length - 1,
+                  (index) => buildDot(index),
                 ),
               ),
             ),
-          ),
         ],
       ),
     );
