@@ -32,13 +32,17 @@ class _courses_cardsState extends State<courses_cards> {
                             title: 'About Amazon',
                             imageUrl: 'assets/images/it.png',
                             detailText: Descriptions().cyberDetailText,
-                            trainerName: 'Riffat Razzaq',
-                            experience: '5 years',
-                            speciality: 'Cybersecurity',
-                            skills: 'Management',
-                            achievements: 'Gold Medalist',
-                            email: 'riffat@gmail.com',
-                            phone: '0340 8119801',
+                            trainerImg: "",
+                            trainerName: 'Zulfiqar Ali Nasir',
+                            experience: '3 Months Experience',
+                            speciality:
+                                'Amazon Fba wholesale and private expert',
+                            skills:
+                                'Product huntung, Product Research, keyword searching, PPC Expert, LLC creation,Account Creation, Product Plan of action strategies and calculations,Product Listing and Listing Optimization, Product Content writing and Amazon account Taxation',
+                            achievements:
+                                'Certified Amazon FBA  course from Smart Future King',
+                            email: 'zulfiqar27490@iqraisb.edu.pk',
+                            phone: '+92 303 5978667',
                             whatYouWillLearn: [
                               'Introduction to cybersecurity',
                               'Network security fundamentals',
@@ -60,7 +64,7 @@ class _courses_cardsState extends State<courses_cards> {
                   width: 10,
                 ),
                 CourseCard(
-                    imagePath: "assets/images/cyber.jpg",
+                    imagePath: "assets/images/cyber_profile.png",
                     title: 'Cyber Security',
                     onTap: () {
                       Navigator.push(
@@ -70,6 +74,7 @@ class _courses_cardsState extends State<courses_cards> {
                             title: 'About Cyber Security',
                             imageUrl: 'assets/images/cyber.jpg',
                             detailText: Descriptions().cyberDetailText,
+                            trainerImg: "",
                             trainerName: 'Waseem Abbas Khan',
                             experience: '5 years',
                             speciality: 'Cyber Security Expert',
@@ -98,7 +103,7 @@ class _courses_cardsState extends State<courses_cards> {
                   width: 10,
                 ),
                 CourseCard(
-                    imagePath: "assets/images/ai.png",
+                    imagePath: "assets/images/ai_profile.png",
                     title: 'Artificial Intellegence',
                     onTap: () {
                       Navigator.push(
@@ -109,13 +114,14 @@ class _courses_cardsState extends State<courses_cards> {
                             imageUrl: 'assets/images/ai.png',
                             detailText: Descriptions()
                                 .cyberDetailText, // Replace with the actual description for AI
-                            trainerName: 'Riffat Razzaq',
-                            experience: '5 years',
+                            trainerImg: "assets/images/mam_mahnoor.jpg",
+                            trainerName: 'Mahnoor Salman',
+                            experience: '2 years +',
                             speciality: 'Artificial Intelligence',
-                            skills: 'Management',
+                            skills: 'Machine Learning, NLP, LLMS',
                             achievements: 'Gold Medalist',
-                            email: 'riffat@gmail.com',
-                            phone: '0340 8119801',
+                            email: 'mahnoorsalman96@gmail.com',
+                            phone: '+92 307 8984322',
                             whatYouWillLearn: [
                               'Introduction to Artificial Intelligence',
                               'Machine Learning Basics',
@@ -137,7 +143,7 @@ class _courses_cardsState extends State<courses_cards> {
                   width: 10,
                 ),
                 CourseCard(
-                    imagePath: "assets/images/cloud.jpg",
+                    imagePath: "assets/images/cloud_profile.png",
                     title: 'Cloud Computing',
                     onTap: () {
                       Navigator.push(
@@ -149,6 +155,7 @@ class _courses_cardsState extends State<courses_cards> {
                                 'assets/images/cloud.jpg', // Replace with the actual image for Cloud Computing
                             detailText: Descriptions()
                                 .cyberDetailText, // Replace with the actual description for Cloud Computing
+                            trainerImg: "",
                             trainerName: 'Riffat Razzaq',
                             experience: '5 years',
                             speciality: 'Cloud Computing',
@@ -177,7 +184,7 @@ class _courses_cardsState extends State<courses_cards> {
                   width: 10,
                 ),
                 CourseCard(
-                    imagePath: "assets/images/networking.jpeg",
+                    imagePath: "assets/images/networking_profile.png",
                     title: 'Networking',
                     onTap: () {
                       Navigator.push(
@@ -189,6 +196,7 @@ class _courses_cardsState extends State<courses_cards> {
                                 'assets/images/networking.jpeg', // Replace with the actual image for Networking
                             detailText: Descriptions()
                                 .cyberDetailText, // Replace with the actual description for Networking
+                            trainerImg: "",
                             trainerName: 'Riffat Razzaq',
                             experience: '5 years',
                             speciality: 'Networking',
@@ -217,7 +225,7 @@ class _courses_cardsState extends State<courses_cards> {
                   width: 10,
                 ),
                 CourseCard(
-                    imagePath: "assets/images/python.jpeg",
+                    imagePath: "assets/images/python_profile.png",
                     title: 'Python',
                     onTap: () {
                       Navigator.push(
@@ -229,6 +237,7 @@ class _courses_cardsState extends State<courses_cards> {
                                 'assets/images/python.jpeg', // Replace with the actual image for Python
                             detailText: Descriptions()
                                 .cyberDetailText, // Replace with the actual description for Python
+                            trainerImg: "",
                             trainerName: 'Riffat Razzaq',
                             experience: '5 years',
                             speciality: 'Python Programming',
@@ -260,5 +269,3 @@ class _courses_cardsState extends State<courses_cards> {
     );
   }
 }
-
-

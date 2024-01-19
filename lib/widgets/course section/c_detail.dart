@@ -5,6 +5,7 @@ class CoursesDetailWidget extends StatefulWidget {
   final String title;
   final String imageUrl;
   final String detailText;
+  final String trainerImg;
   final String trainerName;
   final String experience;
   final String speciality;
@@ -19,6 +20,7 @@ class CoursesDetailWidget extends StatefulWidget {
     required this.title,
     required this.imageUrl,
     required this.detailText,
+    required this.trainerImg,
     required this.trainerName,
     required this.experience,
     required this.speciality,
@@ -94,8 +96,7 @@ class _CoursesDetailWidgetState extends State<CoursesDetailWidget> {
                             ),
                             child: CircleAvatar(
                               radius: 50,
-                              backgroundImage:
-                                  AssetImage("assets/images/ai.png"),
+                              backgroundImage: AssetImage(widget.trainerImg),
                             ),
                           ),
                           SizedBox(width: 20),
@@ -112,46 +113,23 @@ class _CoursesDetailWidgetState extends State<CoursesDetailWidget> {
                                   ),
                                 ),
                                 const SizedBox(height: 5),
-                                Text(
-                                  "Experience: " + widget.experience,
-                                  style: TextStyle(
+                                // Use consistent prefix for each item
+                                for (String item in [
+                                  widget.experience,
+                                  widget.speciality,
+                                  widget.skills,
+                                  widget.achievements,
+                                  widget.email,
+                                  widget.phone,
+                                ])
+                                  Text(
+                                    "‣ " + item,
+                                    textAlign: TextAlign.start,
+                                    style: TextStyle(
                                       fontSize: 18,
-                                      color: Color.fromARGB(255, 77, 77, 77)),
-                                ),
-                                const SizedBox(height: 5),
-                                Text(
-                                  "Speciality: " + widget.speciality,
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      color: Color.fromARGB(255, 77, 77, 77)),
-                                ),
-                                const SizedBox(height: 5),
-                                Text(
-                                  "Skills: " + widget.skills,
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      color: Color.fromARGB(255, 77, 77, 77)),
-                                ),
-                                const SizedBox(height: 5),
-                                Text(
-                                  "Achievements: " + widget.achievements,
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      color: Color.fromARGB(255, 77, 77, 77)),
-                                ),
-                                Text(
-                                  "Email: " + widget.email,
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      color: Color.fromARGB(255, 77, 77, 77)),
-                                ),
-                                const SizedBox(height: 5),
-                                Text(
-                                  "Contact: " + widget.phone,
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      color: Color.fromARGB(255, 77, 77, 77)),
-                                ),
+                                      color: Color.fromARGB(255, 77, 77, 77),
+                                    ),
+                                  ),
                                 const SizedBox(height: 5),
                               ],
                             ),
@@ -180,9 +158,9 @@ class _CoursesDetailWidgetState extends State<CoursesDetailWidget> {
                               title: Text(
                                 point,
                                 style: TextStyle(
-                                    fontSize: 18,
-                                    color:
-                                        const Color.fromARGB(255, 77, 77, 77)),
+                                  fontSize: 18,
+                                  color: const Color.fromARGB(255, 77, 77, 77),
+                                ),
                               ),
                             ),
                         ],

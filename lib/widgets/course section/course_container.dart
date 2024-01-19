@@ -3,14 +3,12 @@ import 'package:flutter/material.dart';
 class CourseCard extends StatelessWidget {
   final String imagePath;
   final String title;
-  //final String details;
   final VoidCallback onTap;
 
   const CourseCard({
     Key? key,
     required this.imagePath,
     required this.title,
-    //required this.details,
     required this.onTap,
   }) : super(key: key);
 
@@ -29,14 +27,22 @@ class CourseCard extends StatelessWidget {
           ),
         ],
       ),
-      width:300,
+      width: 300,
       height: 250,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.asset(
-            imagePath,
-            fit: BoxFit.cover,
+          // Use a SizedBox with an AspectRatio to maintain image aspect ratio
+          SizedBox(
+            width: double.infinity,
+            height: 150,
+            child: ClipRRect(
+              borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
+              child: Image.asset(
+                imagePath,
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
           SizedBox(
             height: 10,
@@ -45,7 +51,10 @@ class CourseCard extends StatelessWidget {
             padding: const EdgeInsets.only(left: 10),
             child: Text(
               title,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              ),
             ),
           ),
           Divider(),
