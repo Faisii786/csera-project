@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:csera_app/widgets/course%20section/c_detail.dart';
 import 'package:csera_app/widgets/course%20section/course_container.dart';
 import 'package:csera_app/utility/text_data.dart';
+
 class courses_cards extends StatefulWidget {
   const courses_cards({super.key});
 
@@ -14,14 +15,14 @@ class _courses_cardsState extends State<courses_cards> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
-      child:Padding(
+      child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
           children: [
             Row(
               children: [
                 CourseCard(
-                    imagePath: "assets/images/amazon.png",
+                    imagePath: "assets/images/amazon_profile.png",
                     title: 'Amazon',
                     onTap: () {
                       Navigator.push(
@@ -145,7 +146,7 @@ class _courses_cardsState extends State<courses_cards> {
                           builder: (context) => CoursesDetailWidget(
                             title: 'About Cloud Computing',
                             imageUrl:
-                            'assets/images/cloud.jpg', // Replace with the actual image for Cloud Computing
+                                'assets/images/cloud.jpg', // Replace with the actual image for Cloud Computing
                             detailText: Descriptions()
                                 .cyberDetailText, // Replace with the actual description for Cloud Computing
                             trainerName: 'Riffat Razzaq',
@@ -185,7 +186,7 @@ class _courses_cardsState extends State<courses_cards> {
                           builder: (context) => CoursesDetailWidget(
                             title: 'About Networking',
                             imageUrl:
-                            'assets/images/networking.jpeg', // Replace with the actual image for Networking
+                                'assets/images/networking.jpeg', // Replace with the actual image for Networking
                             detailText: Descriptions()
                                 .cyberDetailText, // Replace with the actual description for Networking
                             trainerName: 'Riffat Razzaq',
@@ -225,7 +226,7 @@ class _courses_cardsState extends State<courses_cards> {
                           builder: (context) => CoursesDetailWidget(
                             title: 'About Python Programming',
                             imageUrl:
-                            'assets/images/python.jpeg', // Replace with the actual image for Python
+                                'assets/images/python.jpeg', // Replace with the actual image for Python
                             detailText: Descriptions()
                                 .cyberDetailText, // Replace with the actual description for Python
                             trainerName: 'Riffat Razzaq',
@@ -260,50 +261,4 @@ class _courses_cardsState extends State<courses_cards> {
   }
 }
 
-class cousrse_card2 extends StatefulWidget {
-  const cousrse_card2({super.key});
-
-  @override
-  State<cousrse_card2> createState() => _cousrse_card2State();
-}
-
-class _cousrse_card2State extends State<cousrse_card2> {
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child:  Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Row(
-          children: [
-            CourseCard(
-                imagePath: "assets/images/python.jpeg",
-                title: 'CCNA Certification',
-                onTap: () {}),
-            SizedBox(
-              height: 10,
-              width: 10,
-            ),
-            CourseCard(
-                imagePath: "assets/images/python.jpeg",
-                title: 'CCNP Certification',
-                onTap: () {}),
-            SizedBox(
-              height: 10,
-              width: 10,
-            ),
-            CourseCard(
-                imagePath: "assets/images/python.jpeg",
-                title: 'Az 104',
-                onTap: () {}),
-            SizedBox(
-              height: 10,
-              width: 10,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
 
