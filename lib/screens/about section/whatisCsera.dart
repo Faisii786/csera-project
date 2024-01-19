@@ -1,7 +1,6 @@
 import 'package:csera_app/utility/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'joinNow.dart';
 
 class whatisCsera extends StatefulWidget {
   const whatisCsera({Key? key});
