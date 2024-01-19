@@ -15,19 +15,19 @@ class _SecondSplashScreenState extends State<SecondSplashScreen> {
 
   List<Widget> screens = [
     SplashPage(
-      imagePath: 'assets/images/learning.png',
+      imagePath: 'assets/images/FaisalSection/SplashScreenImages/learning.png',
       title: 'Start Learning',
       description:
           'Start learning now by using this app, Get your chosen course and start the journey. Start today with Csera, where learning meets innovation.',
     ),
     SplashPage(
-      imagePath: 'assets/images/explore.png',
+      imagePath: 'assets/images/FaisalSection/SplashScreenImages/explore.png',
       title: 'Explore Courses',
       description:
           'Choose Which course is suitable for you to enroll in. Start today with Csera, where learning meets innovation.',
     ),
     SplashPage(
-      imagePath: 'assets/images/time.png',
+      imagePath: 'assets/images/FaisalSection/SplashScreenImages/time.png',
       title: 'At Any time.',
       description:
           'Your courses are available at any time you want. Join us now! Start today with Csera, where learning meets innovation.',

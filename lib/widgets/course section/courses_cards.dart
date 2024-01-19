@@ -22,18 +22,19 @@ class _courses_cardsState extends State<courses_cards> {
             Row(
               children: [
                 CourseCard(
-                    imagePath: "assets/images/amazon_profile.png",
+                    imagePath:
+                        "assets/images/FaisalSection/CourseProfilePics/amazon_profile.png",
                     title: 'Amazon',
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) =>
-                              CoursesDetailWidget(
-                            title: 'About Amazon',
-                            imageUrl: 'assets/images/it.png',
+                          builder: (context) => CoursesDetailWidget(
+                            title: 'Amazon',
+                            imageUrl: '',
                             detailText: Descriptions().cyberDetailText,
-                            trainerImg: "",
+                            trainerImg:
+                                "assets/images/FaisalSection/TeachersPics/zulfiqar_ali.jpg",
                             trainerName: 'Zulfiqar Ali Nasir',
                             experience: '3 Months Experience',
                             speciality:
@@ -65,17 +66,19 @@ class _courses_cardsState extends State<courses_cards> {
                   width: 10,
                 ),
                 CourseCard(
-                    imagePath: "assets/images/cyber_profile.png",
+                    imagePath:
+                        "assets/images/FaisalSection/CourseProfilePics/cyber_profile.png",
                     title: 'Cyber Security',
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => CoursesDetailWidget(
-                            title: 'About Cyber Security',
-                            imageUrl: 'assets/images/cyber.jpg',
+                            title: 'Cyber Security',
+                            imageUrl: '',
                             detailText: Descriptions().cyberDetailText,
-                            trainerImg: "",
+                            trainerImg:
+                                "assets/images/FaisalSection/TeachersPics/waseem_abbas.jpeg",
                             trainerName: 'Waseem Abbas Khan',
                             experience: '5 years',
                             speciality: 'Cyber Security Expert',
@@ -104,20 +107,21 @@ class _courses_cardsState extends State<courses_cards> {
                   width: 10,
                 ),
                 CourseCard(
-                    imagePath: "assets/images/ai_profile.png",
+                    imagePath:
+                        "assets/images/FaisalSection/CourseProfilePics/ai_profile.png",
                     title: 'Artificial Intellegence',
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => CoursesDetailWidget(
-                            title: 'About Artificial Intelligence',
-                            imageUrl: 'assets/images/ai.png',
-                            detailText: Descriptions()
-                                .cyberDetailText, // Replace with the actual description for AI
-                            trainerImg: "assets/images/mam_mahnoor.jpg",
+                            title: 'Artificial Intelligence',
+                            imageUrl: '',
+                            detailText: Descriptions().cyberDetailText,
+                            trainerImg:
+                                "assets/images/FaisalSection/TeachersPics/mam_mahnoor.jpg",
                             trainerName: 'Mahnoor Salman',
-                            experience: '2 years +',
+                            experience: '2 years Experience',
                             speciality: 'Artificial Intelligence',
                             skills: 'Machine Learning, NLP, LLMS',
                             achievements: 'Gold Medalist',
@@ -144,18 +148,17 @@ class _courses_cardsState extends State<courses_cards> {
                   width: 10,
                 ),
                 CourseCard(
-                    imagePath: "assets/images/cloud_profile.png",
+                    imagePath:
+                        "assets/images/FaisalSection/CourseProfilePics/cloud_profile.png",
                     title: 'Cloud Computing',
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => CoursesDetailWidget(
-                            title: 'About Cloud Computing',
-                            imageUrl:
-                                'assets/images/cloud.jpg', // Replace with the actual image for Cloud Computing
-                            detailText: Descriptions()
-                                .cyberDetailText, // Replace with the actual description for Cloud Computing
+                            title: 'Cloud Computing',
+                            imageUrl: '',
+                            detailText: Descriptions().cyberDetailText,
                             trainerImg: "",
                             trainerName: 'Riffat Razzaq',
                             experience: '5 years',
@@ -185,18 +188,17 @@ class _courses_cardsState extends State<courses_cards> {
                   width: 10,
                 ),
                 CourseCard(
-                    imagePath: "assets/images/networking_profile.png",
+                    imagePath:
+                        "assets/images/FaisalSection/CourseProfilePics/networking_profile.png",
                     title: 'Networking',
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => CoursesDetailWidget(
-                            title: 'About Networking',
-                            imageUrl:
-                                'assets/images/networking.jpeg', // Replace with the actual image for Networking
-                            detailText: Descriptions()
-                                .cyberDetailText, // Replace with the actual description for Networking
+                            title: 'Networking',
+                            imageUrl: '',
+                            detailText: Descriptions().cyberDetailText,
                             trainerImg: "",
                             trainerName: 'Riffat Razzaq',
                             experience: '5 years',
@@ -226,18 +228,17 @@ class _courses_cardsState extends State<courses_cards> {
                   width: 10,
                 ),
                 CourseCard(
-                    imagePath: "assets/images/python_profile.png",
+                    imagePath:
+                        "assets/images/FaisalSection/CourseProfilePics/python_profile.png",
                     title: 'Python',
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => CoursesDetailWidget(
-                            title: 'About Python Programming',
-                            imageUrl:
-                                'assets/images/python.jpeg', // Replace with the actual image for Python
-                            detailText: Descriptions()
-                                .cyberDetailText, // Replace with the actual description for Python
+                            title: 'Python Programming',
+                            imageUrl: '',
+                            detailText: Descriptions().cyberDetailText,
                             trainerImg: "",
                             trainerName: 'Riffat Razzaq',
                             experience: '5 years',

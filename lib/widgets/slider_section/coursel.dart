@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 class ImageCarousel extends StatelessWidget {
 
   final List<String> imageUrls = [
-    'assets/images/amazon.png',
-    'assets/images/ai.png',
-    'assets/images/cloud.jpg',
-    'assets/images/cyber.jpg',
+    'assets/images/FaisalSection/CourseCoverPics/cyber.jpg',
+    'assets/images/FaisalSection/CourseCoverPics/game.png',
+    'assets/images/FaisalSection/CourseCoverPics/amazon.png',
+    'assets/images/FaisalSection/CourseCoverPics/ai.png',
   ];
 
   @override

@@ -18,7 +18,7 @@ class _training_cardsState extends State<training_cards> {
         child: Row(
           children: [
             CourseCard(
-                imagePath: "assets/images/ccna_profile.png",
+                imagePath: "assets/images/FaisalSection/TrainingProfilePics/ccna_profile.png",
                 title: 'CCNA Certification',
                 onTap: () {}),
             SizedBox(
@@ -26,7 +26,7 @@ class _training_cardsState extends State<training_cards> {
               width: 10,
             ),
             CourseCard(
-                imagePath: "assets/images/az_104_profile.png",
+                imagePath: "assets/images/FaisalSection/TrainingProfilePics/az_104_profile.png",
                 title: 'Az 104',
                 onTap: () {}),
             SizedBox(
@@ -34,7 +34,7 @@ class _training_cardsState extends State<training_cards> {
               width: 10,
             ),
             CourseCard(
-                imagePath: "assets/images/ccnp_profile.png",
+                imagePath: "assets/images/FaisalSection/TrainingProfilePics/ccnp_profile.png",
                 title: 'CCNP Certification',
                 onTap: () {}),
           ],

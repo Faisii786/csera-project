@@ -62,7 +62,7 @@ class _CoursesDetailWidgetState extends State<CoursesDetailWidget> {
               ),
               SliverToBoxAdapter(
                 child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -70,6 +70,14 @@ class _CoursesDetailWidgetState extends State<CoursesDetailWidget> {
                         widget.title,
                         style: GoogleFonts.anekLatin(
                           fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.blue,
+                        ),
+                      ),
+                      Text(
+                        'Presented by CSERA PVT LTD',
+                        style: GoogleFonts.roboto(
+                          fontSize: 15,
                           fontWeight: FontWeight.bold,
                           color: Colors.blue,
                         ),

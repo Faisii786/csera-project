@@ -35,7 +35,7 @@ class _FirstSplashScreenState extends State<FirstSplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              'assets/images/csera_splash.png',
+              'assets/images/FaisalSection/SplashScreenImages/csera_splash.png',
               width: 350.0,
               height: 350.0,
             ),
