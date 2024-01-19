@@ -7,8 +7,7 @@ import '../../screens/about section/whoCsera.dart';
 
 class animatedContainers extends StatefulWidget {
   @override
-  _animatedContainersState createState() =>
-      _animatedContainersState();
+  _animatedContainersState createState() => _animatedContainersState();
 }
 
 class _animatedContainersState extends State<animatedContainers>
@@ -22,11 +21,6 @@ class _animatedContainersState extends State<animatedContainers>
   late Animation<Offset> _animation2;
   late Animation<Offset> _animation3;
   late Animation<Offset> _animation4;
-
-  Color _containerColor1 = Colors.blue;
-  Color _containerColor2 = Colors.red;
-  Color _containerColor3 = Colors.green;
-  Color _containerColor4 = Colors.yellow;
 
   @override
   void initState() {
@@ -107,32 +101,32 @@ class _animatedContainersState extends State<animatedContainers>
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           // Row 1
-          buildAnimatedContainer(_containerColor1, _animation1,
-              "assets/images/what-is-csera.png", () {
-                // Add your navigation logic here
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => whatisCsera()));
-              }),
-          buildAnimatedContainer(_containerColor2, _animation2,
-              "assets/images/what-is-csera.png", () {
-                // Add your navigation logic here
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => whyCsera()));
-              }),
+          buildAnimatedContainer(_animation1, "assets/images/what.png",
+              () {
+            // Add your navigation logic here
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => whatisCsera()));
+          }),
+          buildAnimatedContainer(_animation2, "assets/images/why.png",
+              () {
+            // Add your navigation logic here
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => whyCsera()));
+          }),
           SizedBox(height: 16),
           // Row 2
-          buildAnimatedContainer(_containerColor3, _animation3,
-              "assets/images/what-is-csera.png", () {
-                // Add your navigation logic here
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => whoCsera()));
-              }),
-          buildAnimatedContainer(_containerColor4, _animation4,
-              "assets/images/what-is-csera.png", () {
-                // Add your navigation logic here
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => joinNow()));
-              }),
+          buildAnimatedContainer(_animation3, "assets/images/who.png",
+              () {
+            // Add your navigation logic here
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => whoCsera()));
+          }),
+          buildAnimatedContainer(_animation4, "assets/images/join.png",
+              () {
+            // Add your navigation logic here
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => joinNow()));
+          }),
           SizedBox(height: 16),
         ],
       ),
@@ -140,34 +134,36 @@ class _animatedContainersState extends State<animatedContainers>
   }
 
   // Widget for building Animated Container with Image and Navigation
-  Widget buildAnimatedContainer(Color color, Animation<Offset> animation,
-      String imagePath, VoidCallback onTap) {
+  Widget buildAnimatedContainer(
+      Animation<Offset> animation, String imagePath, VoidCallback onTap) {
     return GestureDetector(
       onTap: onTap,
       child: SlideTransition(
         position: animation,
-        child: Container(
-          height: 160.0, // Adjusted container height
-          width: 160.0,
-          margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-          decoration: BoxDecoration(
-            color: color,
-            borderRadius: BorderRadius.circular(20.0),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.5),
-                spreadRadius: 4,
-                blurRadius: 7,
-                offset: Offset(0, 3),
+        child: Padding(
+          padding: const EdgeInsets.all(6.0),
+          child: Container(
+            height: 150.0, // Adjusted container height
+            width: 150.0,
+            margin: EdgeInsets.symmetric(horizontal: 2.0, vertical: 2.0),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10.0),
+              // boxShadow: [
+              //   // BoxShadow(
+              //   //   color: Colors.grey.withOpacity(0.5),
+              //   //   spreadRadius: 4,
+              //   //   blurRadius: 7,
+              //   //   offset: Offset(0, 3),
+              //   // ),
+              // ],
+            ),
+            // Image widget added here
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(16.0),
+              child: Image.asset(
+                imagePath,
+                fit: BoxFit.fill,
               ),
-            ],
-          ),
-          // Image widget added here
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(30.0),
-            child: Image.asset(
-              imagePath,
-              fit: BoxFit.fill,
             ),
           ),
         ),
