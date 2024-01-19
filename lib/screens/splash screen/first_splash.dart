@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:csera_app/screens/Dashboard.dart';
 import 'package:csera_app/screens/splash%20screen/second_splash.dart';
 import 'package:csera_app/utility/colors.dart';
 import 'package:flutter/material.dart';
