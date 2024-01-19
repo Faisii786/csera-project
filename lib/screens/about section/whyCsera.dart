@@ -171,20 +171,18 @@ class _whyCseraState extends State<whyCsera> {
                       buildRow(i),
                       SizedBox(height: 16),
                     ],
-                    // Join Now Button
-                    ElevatedButton(
-                      onPressed: () {
-                        // Navigate to the Join Now page
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => joinNow(),
-                          ),
-                        );
-                      },
-                      child: Center(child: Text('Join Now')),
-                    ),
+                    Divider(),
                     const SizedBox(height: 16),
+                    Center(
+                      child: Text(
+                        'CSERA PVT LTD',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.blue,
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),

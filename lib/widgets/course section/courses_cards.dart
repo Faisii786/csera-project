@@ -28,7 +28,8 @@ class _courses_cardsState extends State<courses_cards> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => CoursesDetailWidget(
+                          builder: (context) =>
+                              CoursesDetailWidget(
                             title: 'About Amazon',
                             imageUrl: 'assets/images/it.png',
                             detailText: Descriptions().cyberDetailText,

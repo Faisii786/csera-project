@@ -125,7 +125,7 @@ class _animatedContainersState extends State<animatedContainers>
               () {
             // Add your navigation logic here
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => joinNow()));
+                context, MaterialPageRoute(builder: (context) => SignUpForm()));
           }),
           SizedBox(height: 16),
         ],
@@ -140,27 +140,30 @@ class _animatedContainersState extends State<animatedContainers>
       onTap: onTap,
       child: SlideTransition(
         position: animation,
-        child: Container(
-          height: 160.0, // Adjusted container height
-          width: 160.0,
-          margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20.0),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.5),
-                spreadRadius: 4,
-                blurRadius: 7,
-                offset: Offset(0, 3),
+        child: Padding(
+          padding: const EdgeInsets.all(6.0),
+          child: Container(
+            height: 150.0, // Adjusted container height
+            width: 150.0,
+            margin: EdgeInsets.symmetric(horizontal: 2.0, vertical: 2.0),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10.0),
+              // boxShadow: [
+              //   // BoxShadow(
+              //   //   color: Colors.grey.withOpacity(0.5),
+              //   //   spreadRadius: 4,
+              //   //   blurRadius: 7,
+              //   //   offset: Offset(0, 3),
+              //   // ),
+              // ],
+            ),
+            // Image widget added here
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(16.0),
+              child: Image.asset(
+                imagePath,
+                fit: BoxFit.fill,
               ),
-            ],
-          ),
-          // Image widget added here
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(30.0),
-            child: Image.asset(
-              imagePath,
-              fit: BoxFit.fill,
             ),
           ),
         ),
