@@ -17,11 +17,11 @@ class _whyCseraState extends State<whyCsera> {
   bool showFullText5 = false;
 
   List<String> images = [
-    'assets/images/1.png',
-    'assets/images/2.png',
-    'assets/images/3.png',
-    'assets/images/4.png',
-    'assets/images/5.png',
+    'assets/images/ShayanSection/WhyCseraLogos/1.png',
+    'assets/images/ShayanSection/WhyCseraLogos/2.png',
+    'assets/images/ShayanSection/WhyCseraLogos/3.png',
+    'assets/images/ShayanSection/WhyCseraLogos/4.png',
+    'assets/images/ShayanSection/WhyCseraLogos/5.png',
   ];
   List<String> titles = [
     'Innovation at the Core',

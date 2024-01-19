@@ -94,12 +94,13 @@ class _whatisCseraState extends State<whatisCsera> {
                           Container(
                             padding: EdgeInsets.symmetric(vertical: 10),
                             child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 // Left Side: Picture
                                 CircleAvatar(
                                   radius: 40,
                                   backgroundImage:
-                                  AssetImage("assets/images/waseem_abbas.jpeg"),
+                                  AssetImage("assets/images/ShayanSection/ContainerPics/waseem_abbas.jpeg"),
                                 ),
                                 // Right Side: Content
                                 Expanded(
