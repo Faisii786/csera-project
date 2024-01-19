@@ -125,7 +125,7 @@ class _animatedContainersState extends State<animatedContainers>
               () {
             // Add your navigation logic here
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => joinNow()));
+                context, MaterialPageRoute(builder: (context) => SignUpForm()));
           }),
           SizedBox(height: 16),
         ],

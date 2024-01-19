@@ -12,6 +12,7 @@ class whatisCsera extends StatefulWidget {
 
 class _whatisCseraState extends State<whatisCsera> {
   bool isExpanded = false;
+  bool isExpanded2 = false;
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +77,7 @@ class _whatisCseraState extends State<whatisCsera> {
                             ),
                             IconButton(
                               icon: Icon(
-                                isExpanded
+                                isExpanded2
                                     ? Icons.keyboard_arrow_up
                                     : Icons.keyboard_arrow_down,
                                 size: 30,
@@ -84,20 +85,20 @@ class _whatisCseraState extends State<whatisCsera> {
                               ),
                               onPressed: () {
                                 setState(() {
-                                  isExpanded = !isExpanded;
+                                  isExpanded2 = !isExpanded2;
                                 });
                               },
                             ),
                           ],
                         ),
-                        if (isExpanded)
+                        if (isExpanded2)
                           Container(
                             padding: EdgeInsets.symmetric(vertical: 10),
                             child: Row(
                               children: [
                                 // Left Side: Picture
                                 CircleAvatar(
-                                  radius: 50,
+                                  radius: 40,
                                   backgroundImage:
                                   AssetImage("assets/images/waseem_abbas.jpeg"),
                                 ),
@@ -117,7 +118,7 @@ class _whatisCseraState extends State<whatisCsera> {
                                         ),
                                         buildDetailRow('Speciality:', 'Cyber Security Expert'),
                                         buildDetailRow('Experience:', '5 years'),
-                                        buildDetailRow('Achievements:', 'Awarded Best Developer 2020'),
+                                        buildDetailRow('Achievements:', 'Best Developer 2020'),
                                         buildDetailRow('Email:', 'waseem@example.com'),
                                         buildDetailRow('Contact:', '+1234567890'),
                                       ],
