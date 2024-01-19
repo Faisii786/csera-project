@@ -101,13 +101,13 @@ class _animatedContainersState extends State<animatedContainers>
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           // Row 1
-          buildAnimatedContainer(_animation1, "assets/images/what.png",
+          buildAnimatedContainer(_animation1, "assets/images/ShayanSection/ContainerPics/what.png",
               () {
             // Add your navigation logic here
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => whatisCsera()));
           }),
-          buildAnimatedContainer(_animation2, "assets/images/why.png",
+          buildAnimatedContainer(_animation2, "assets/images/ShayanSection/ContainerPics/why.png",
               () {
             // Add your navigation logic here
             Navigator.push(
@@ -115,13 +115,13 @@ class _animatedContainersState extends State<animatedContainers>
           }),
           SizedBox(height: 16),
           // Row 2
-          buildAnimatedContainer(_animation3, "assets/images/who.png",
+          buildAnimatedContainer(_animation3, "assets/images/ShayanSection/ContainerPics/who.png",
               () {
             // Add your navigation logic here
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => whoCsera()));
           }),
-          buildAnimatedContainer(_animation4, "assets/images/join.png",
+          buildAnimatedContainer(_animation4, "assets/images/ShayanSection/ContainerPics/join.png",
               () {
             // Add your navigation logic here
             Navigator.push(
