@@ -1,8 +1,6 @@
 import 'package:csera_app/widgets/appbar%20section/lists.dart';
-import 'package:csera_app/widgets/contact%20section/contact%20us.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-
 import '../../screens/Dashboard.dart';
 import '../../utility/colors.dart';
 
@@ -22,7 +20,7 @@ class MyDrawer extends StatelessWidget {
             accountName: Text('John Doe'),
             accountEmail: Text('john.doe@example.com'),
             currentAccountPicture: CircleAvatar(
-              backgroundImage: AssetImage('assets/images/why.png'),
+              backgroundImage: AssetImage('assets/images/ShayanSection/ContainerPics/what.png'),
             ),
             decoration: BoxDecoration(
               color: Colors.transparent, // Customize the background color

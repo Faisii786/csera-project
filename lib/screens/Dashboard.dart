@@ -5,7 +5,6 @@ import 'package:csera_app/widgets/course%20section/training_cards.dart';
 import 'package:flutter/material.dart';
 import 'package:csera_app/widgets/slider_section/coursel.dart';
 import 'package:csera_app/widgets/slider_section/about_text.dart';
-// import 'package:csera_app/widgets/slider_section/logo_container.dart';
 import 'package:csera_app/widgets/course%20section/courses_cards.dart';
 import 'package:google_fonts/google_fonts.dart';
 
