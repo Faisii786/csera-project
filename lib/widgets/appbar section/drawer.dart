@@ -19,7 +19,7 @@ class MyDrawer extends StatelessWidget {
             accountName: Text('John Doe'),
             accountEmail: Text('john.doe@example.com'),
             currentAccountPicture: CircleAvatar(
-              backgroundImage: AssetImage('assets/images/who.png'),
+              backgroundImage: AssetImage('assets/images/why.png'),
             ),
             decoration: BoxDecoration(
               color: Colors.transparent, // Customize the background color
