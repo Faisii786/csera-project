@@ -32,7 +32,7 @@ class _SignUpFormState extends State<SignUpForm> {
                 titlePadding:
                 const EdgeInsets.symmetric(vertical: 25, horizontal: 10),
                 background: Image.asset(
-                  'assets/images/what-is-csera.png',
+                  'assets/images/ShayanSection/ContainerPics/join.png',
                   fit: BoxFit.cover,
                 ),
               ),

@@ -29,7 +29,7 @@ class _whatisCseraState extends State<whatisCsera> {
                 titlePadding:
                 const EdgeInsets.symmetric(vertical: 25, horizontal: 10),
                 background: Image.asset(
-                  'assets/images/what-is-csera.png',
+                  'assets/images/ShayanSection/ContainerPics/what.png',
                   fit: BoxFit.cover,
                 ),
               ),
