@@ -66,6 +66,13 @@ flutter:
   #To add assets to your application, add an assets section, like this:
   assets:
      - assets/images/
+     - assets/images/ShayanSection/ContainerPics/
+     - assets/images/ShayanSection/WhyCseraLogos/
+     - assets/images/FaisalSection/CourseCoverPics/
+     - assets/images/FaisalSection/CourseProfilePics/
+     - assets/images/FaisalSection/SplashScreenImages/
+     - assets/images/FaisalSection/TeachersPics/
+     - assets/images/FaisalSection/TrainingProfilePics/
   # To add assets to your application, add an assets section, like this:
 
 

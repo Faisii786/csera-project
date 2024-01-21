@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:csera_app/widgets/course%20section/c_detail.dart';
 import 'package:csera_app/widgets/course%20section/course_container.dart';
 import 'package:csera_app/utility/text_data.dart';
+
 class courses_cards extends StatefulWidget {
   const courses_cards({super.key});
 
@@ -14,30 +15,36 @@ class _courses_cardsState extends State<courses_cards> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
-      child:Padding(
+      child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
           children: [
             Row(
               children: [
                 CourseCard(
-                    imagePath: "assets/images/amazon.png",
+                    imagePath:
+                        "assets/images/FaisalSection/CourseProfilePics/amazon_profile.png",
                     title: 'Amazon',
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => CoursesDetailWidget(
-                            title: 'About Amazon',
-                            imageUrl: 'assets/images/it.png',
+                            title: 'Amazon',
+                            imageUrl: '',
                             detailText: Descriptions().cyberDetailText,
-                            trainerName: 'Riffat Razzaq',
-                            experience: '5 years',
-                            speciality: 'Cybersecurity',
-                            skills: 'Management',
-                            achievements: 'Gold Medalist',
-                            email: 'riffat@gmail.com',
-                            phone: '0340 8119801',
+                            trainerImg:
+                                "assets/images/FaisalSection/TeachersPics/zulfiqar_ali.jpg",
+                            trainerName: 'Zulfiqar Ali Nasir',
+                            experience: '3 Months Experience',
+                            speciality:
+                                'Amazon Fba wholesale and private expert',
+                            skills:
+                                'Product huntung, Product Research, keyword searching, PPC Expert, LLC creation,Account Creation, Product Plan of action strategies and calculations,Product Listing and Listing Optimization, Product Content writing and Amazon account Taxation',
+                            achievements:
+                                'Certified Amazon FBA  course from Smart Future King',
+                            email: 'zulfiqar27490@iqraisb.edu.pk',
+                            phone: '+92 303 5978667',
                             whatYouWillLearn: [
                               'Introduction to cybersecurity',
                               'Network security fundamentals',
@@ -59,16 +66,19 @@ class _courses_cardsState extends State<courses_cards> {
                   width: 10,
                 ),
                 CourseCard(
-                    imagePath: "assets/images/cyber.jpg",
+                    imagePath:
+                        "assets/images/FaisalSection/CourseProfilePics/cyber_profile.png",
                     title: 'Cyber Security',
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => CoursesDetailWidget(
-                            title: 'About Cyber Security',
-                            imageUrl: 'assets/images/cyber.jpg',
+                            title: 'Cyber Security',
+                            imageUrl: '',
                             detailText: Descriptions().cyberDetailText,
+                            trainerImg:
+                                "assets/images/FaisalSection/TeachersPics/waseem_abbas.jpeg",
                             trainerName: 'Waseem Abbas Khan',
                             experience: '5 years',
                             speciality: 'Cyber Security Expert',
@@ -97,24 +107,26 @@ class _courses_cardsState extends State<courses_cards> {
                   width: 10,
                 ),
                 CourseCard(
-                    imagePath: "assets/images/ai.png",
+                    imagePath:
+                        "assets/images/FaisalSection/CourseProfilePics/ai_profile.png",
                     title: 'Artificial Intellegence',
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => CoursesDetailWidget(
-                            title: 'About Artificial Intelligence',
-                            imageUrl: 'assets/images/ai.png',
-                            detailText: Descriptions()
-                                .cyberDetailText, // Replace with the actual description for AI
-                            trainerName: 'Riffat Razzaq',
-                            experience: '5 years',
+                            title: 'Artificial Intelligence',
+                            imageUrl: '',
+                            detailText: Descriptions().cyberDetailText,
+                            trainerImg:
+                                "assets/images/FaisalSection/TeachersPics/mam_mahnoor.jpg",
+                            trainerName: 'Mahnoor Salman',
+                            experience: '2 years Experience',
                             speciality: 'Artificial Intelligence',
-                            skills: 'Management',
+                            skills: 'Machine Learning, NLP, LLMS',
                             achievements: 'Gold Medalist',
-                            email: 'riffat@gmail.com',
-                            phone: '0340 8119801',
+                            email: 'mahnoorsalman96@gmail.com',
+                            phone: '+92 307 8984322',
                             whatYouWillLearn: [
                               'Introduction to Artificial Intelligence',
                               'Machine Learning Basics',
@@ -136,18 +148,18 @@ class _courses_cardsState extends State<courses_cards> {
                   width: 10,
                 ),
                 CourseCard(
-                    imagePath: "assets/images/cloud.jpg",
+                    imagePath:
+                        "assets/images/FaisalSection/CourseProfilePics/cloud_profile.png",
                     title: 'Cloud Computing',
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => CoursesDetailWidget(
-                            title: 'About Cloud Computing',
-                            imageUrl:
-                            'assets/images/cloud.jpg', // Replace with the actual image for Cloud Computing
-                            detailText: Descriptions()
-                                .cyberDetailText, // Replace with the actual description for Cloud Computing
+                            title: 'Cloud Computing',
+                            imageUrl: '',
+                            detailText: Descriptions().cyberDetailText,
+                            trainerImg: "",
                             trainerName: 'Riffat Razzaq',
                             experience: '5 years',
                             speciality: 'Cloud Computing',
@@ -176,18 +188,18 @@ class _courses_cardsState extends State<courses_cards> {
                   width: 10,
                 ),
                 CourseCard(
-                    imagePath: "assets/images/networking.jpeg",
+                    imagePath:
+                        "assets/images/FaisalSection/CourseProfilePics/networking_profile.png",
                     title: 'Networking',
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => CoursesDetailWidget(
-                            title: 'About Networking',
-                            imageUrl:
-                            'assets/images/networking.jpeg', // Replace with the actual image for Networking
-                            detailText: Descriptions()
-                                .cyberDetailText, // Replace with the actual description for Networking
+                            title: 'Networking',
+                            imageUrl: '',
+                            detailText: Descriptions().cyberDetailText,
+                            trainerImg: "",
                             trainerName: 'Riffat Razzaq',
                             experience: '5 years',
                             speciality: 'Networking',
@@ -216,18 +228,18 @@ class _courses_cardsState extends State<courses_cards> {
                   width: 10,
                 ),
                 CourseCard(
-                    imagePath: "assets/images/python.jpeg",
+                    imagePath:
+                        "assets/images/FaisalSection/CourseProfilePics/python_profile.png",
                     title: 'Python',
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => CoursesDetailWidget(
-                            title: 'About Python Programming',
-                            imageUrl:
-                            'assets/images/python.jpeg', // Replace with the actual image for Python
-                            detailText: Descriptions()
-                                .cyberDetailText, // Replace with the actual description for Python
+                            title: 'Python Programming',
+                            imageUrl: '',
+                            detailText: Descriptions().cyberDetailText,
+                            trainerImg: "",
                             trainerName: 'Riffat Razzaq',
                             experience: '5 years',
                             speciality: 'Python Programming',
@@ -259,51 +271,3 @@ class _courses_cardsState extends State<courses_cards> {
     );
   }
 }
-
-class cousrse_card2 extends StatefulWidget {
-  const cousrse_card2({super.key});
-
-  @override
-  State<cousrse_card2> createState() => _cousrse_card2State();
-}
-
-class _cousrse_card2State extends State<cousrse_card2> {
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child:  Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Row(
-          children: [
-            CourseCard(
-                imagePath: "assets/images/python.jpeg",
-                title: 'CCNA Certification',
-                onTap: () {}),
-            SizedBox(
-              height: 10,
-              width: 10,
-            ),
-            CourseCard(
-                imagePath: "assets/images/python.jpeg",
-                title: 'CCNP Certification',
-                onTap: () {}),
-            SizedBox(
-              height: 10,
-              width: 10,
-            ),
-            CourseCard(
-                imagePath: "assets/images/python.jpeg",
-                title: 'Az 104',
-                onTap: () {}),
-            SizedBox(
-              height: 10,
-              width: 10,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-

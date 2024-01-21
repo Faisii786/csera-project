@@ -1,8 +1,6 @@
 import 'package:csera_app/utility/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'joinNow.dart';
-import 'package:csera_app/utility/colors.dart';
 
 class whyCsera extends StatefulWidget {
   const whyCsera({Key? key});
@@ -19,11 +17,11 @@ class _whyCseraState extends State<whyCsera> {
   bool showFullText5 = false;
 
   List<String> images = [
-    'assets/images/1.png',
-    'assets/images/2.png',
-    'assets/images/3.png',
-    'assets/images/4.png',
-    'assets/images/5.png',
+    'assets/images/ShayanSection/WhyCseraLogos/1.png',
+    'assets/images/ShayanSection/WhyCseraLogos/2.png',
+    'assets/images/ShayanSection/WhyCseraLogos/3.png',
+    'assets/images/ShayanSection/WhyCseraLogos/4.png',
+    'assets/images/ShayanSection/WhyCseraLogos/5.png',
   ];
   List<String> titles = [
     'Innovation at the Core',
@@ -171,20 +169,18 @@ class _whyCseraState extends State<whyCsera> {
                       buildRow(i),
                       SizedBox(height: 16),
                     ],
-                    // Join Now Button
-                    ElevatedButton(
-                      onPressed: () {
-                        // Navigate to the Join Now page
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => joinNow(),
-                          ),
-                        );
-                      },
-                      child: Center(child: Text('Join Now')),
-                    ),
+                    Divider(),
                     const SizedBox(height: 16),
+                    Center(
+                      child: Text(
+                        'CSERA PVT LTD',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.blue,
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),

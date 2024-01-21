@@ -101,13 +101,13 @@ class _animatedContainersState extends State<animatedContainers>
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           // Row 1
-          buildAnimatedContainer(_animation1, "assets/images/what.png",
+          buildAnimatedContainer(_animation1, "assets/images/ShayanSection/ContainerPics/what.png",
               () {
             // Add your navigation logic here
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => whatisCsera()));
           }),
-          buildAnimatedContainer(_animation2, "assets/images/why.png",
+          buildAnimatedContainer(_animation2, "assets/images/ShayanSection/ContainerPics/why.png",
               () {
             // Add your navigation logic here
             Navigator.push(
@@ -115,17 +115,17 @@ class _animatedContainersState extends State<animatedContainers>
           }),
           SizedBox(height: 16),
           // Row 2
-          buildAnimatedContainer(_animation3, "assets/images/who.png",
+          buildAnimatedContainer(_animation3, "assets/images/ShayanSection/ContainerPics/who.png",
               () {
             // Add your navigation logic here
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => whoCsera()));
           }),
-          buildAnimatedContainer(_animation4, "assets/images/join.png",
+          buildAnimatedContainer(_animation4, "assets/images/ShayanSection/ContainerPics/join.png",
               () {
             // Add your navigation logic here
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => joinNow()));
+                context, MaterialPageRoute(builder: (context) => SignUpForm()));
           }),
           SizedBox(height: 16),
         ],
@@ -140,27 +140,30 @@ class _animatedContainersState extends State<animatedContainers>
       onTap: onTap,
       child: SlideTransition(
         position: animation,
-        child: Container(
-          height: 160.0, // Adjusted container height
-          width: 160.0,
-          margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20.0),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.5),
-                spreadRadius: 4,
-                blurRadius: 7,
-                offset: Offset(0, 3),
+        child: Padding(
+          padding: const EdgeInsets.all(6.0),
+          child: Container(
+            height: 150.0, // Adjusted container height
+            width: 150.0,
+            margin: EdgeInsets.symmetric(horizontal: 2.0, vertical: 2.0),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10.0),
+              // boxShadow: [
+              //   // BoxShadow(
+              //   //   color: Colors.grey.withOpacity(0.5),
+              //   //   spreadRadius: 4,
+              //   //   blurRadius: 7,
+              //   //   offset: Offset(0, 3),
+              //   // ),
+              // ],
+            ),
+            // Image widget added here
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(16.0),
+              child: Image.asset(
+                imagePath,
+                fit: BoxFit.fill,
               ),
-            ],
-          ),
-          // Image widget added here
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(30.0),
-            child: Image.asset(
-              imagePath,
-              fit: BoxFit.fill,
             ),
           ),
         ),
