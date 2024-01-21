@@ -1,115 +1,48 @@
 import 'package:csera_app/widgets/appbar%20section/lists.dart';
+import 'package:csera_app/widgets/contact%20section/contact%20us.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
+import '../../screens/Dashboard.dart';
+import '../../utility/colors.dart';
+
 class MyDrawer extends StatelessWidget {
-  const MyDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Drawer(
-          backgroundColor: Colors.white,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              DrawerHeader(
-                child: CircleAvatar(
-                  backgroundImage: AssetImage('assets/images/appbar_logo.jpg'),
-                  radius: 60,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: lists(
-                  'Home',
-                  Icon(
-                    Icons.account_balance_rounded,
-                    color: Colors.white,
-                  ),
-                  Colors.white,
-                  Icon(
-                    Icons.person,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: lists(
-                  'ABOUT',
-                  Icon(
-                    Icons.account_box_outlined,
-                    color: Colors.white,
-                  ),
-                  Colors.white,
-                  Icon(
-                    Icons.account_box_outlined,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: lists(
-                  'COURSES',
-                  Icon(
-                    Icons.discount_rounded,
-                    color: Colors.white,
-                  ),
-                  Colors.white,
-                  Icon(
-                    Icons.propane_tank,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: lists(
-                  'SERVICES',
-                  Icon(
-                    Icons.design_services_outlined,
-                    color: Colors.white,
-                  ),
-                  Colors.white,
-                  Icon(
-                    Icons.account_box_outlined,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: lists(
-                  'CONTACT US',
-                  Icon(
-                    Icons.contact_phone,
-                    color: Colors.white,
-                  ),
-                  Colors.white,
-                  Icon(
-                    Icons.person_off,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: lists(
-                  'BLOG',
-                  Icon(
-                    Icons.vpn_lock_outlined,
-                    color: Colors.white,
-                  ),
-                  Colors.white,
-                  Icon(
-                    Icons.ad_units_rounded,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            ],
+      width: 230,
+      backgroundColor: AppColors().AppBarColor,
+      child: ListView(
+        padding: EdgeInsets.zero,
+        dragStartBehavior: DragStartBehavior.start,
+        children: [
+          UserAccountsDrawerHeader(
+            currentAccountPictureSize: Size.fromRadius(40),
+            accountName: Text('John Doe'),
+            accountEmail: Text('john.doe@example.com'),
+            currentAccountPicture: CircleAvatar(
+              backgroundImage: AssetImage('assets/images/who.png'),
+            ),
+            decoration: BoxDecoration(
+              color: Colors.transparent, // Customize the background color
+            ),
           ),
-        );
+         Column(
+           children: [
+             lists('Home',Icon(Icons.navigate_next,color: Colors.white,),Colors.white,Icon(Icons.home,color: Colors.white,),"1"),
+             Divider(),
+             lists('About',Icon(Icons.navigate_next,color: Colors.white,),Colors.white,Icon(Icons.align_vertical_bottom_outlined,color: Colors.white,),"2"),
+             Divider(),
+             lists('Services',Icon(Icons.navigate_next,color: Colors.white,),Colors.white,Icon(Icons.design_services_outlined,color: Colors.white,),"3"),
+             Divider(),
+             lists('Courses',Icon(Icons.navigate_next,color: Colors.white,),Colors.white,Icon(Icons.golf_course,color: Colors.white,),"4"),
+             Divider(),
+             lists('Contact us',Icon(Icons.navigate_next,color: Colors.white,),Colors.white,Icon(Icons.contact_page_outlined,color: Colors.white,),"5"),
+           ],
+         ),
+        ],//listview children
+      ),
+    );
   }
 }
