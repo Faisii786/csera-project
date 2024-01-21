@@ -3,8 +3,6 @@ import 'package:csera_app/screens/about%20section/whatisCsera.dart';
 import 'package:csera_app/screens/about%20section/whyCsera.dart';
 import 'package:flutter/material.dart';
 
-import '../../screens/about section/whoCsera.dart';
-
 class animatedContainers extends StatefulWidget {
   @override
   _animatedContainersState createState() => _animatedContainersState();
@@ -14,12 +12,10 @@ class _animatedContainersState extends State<animatedContainers>
     with TickerProviderStateMixin {
   late AnimationController _controller1;
   late AnimationController _controller2;
-  late AnimationController _controller3;
   late AnimationController _controller4;
 
   late Animation<Offset> _animation1;
   late Animation<Offset> _animation2;
-  late Animation<Offset> _animation3;
   late Animation<Offset> _animation4;
 
   @override
@@ -55,22 +51,6 @@ class _animatedContainersState extends State<animatedContainers>
         parent: _controller2,
       ),
     );
-
-    // Animation Controller and Animation for the third container
-    _controller3 = AnimationController(
-      duration: Duration(seconds: 2),
-      vsync: this,
-    );
-    _animation3 = Tween<Offset>(
-      begin: Offset(-1.0, 0.0),
-      end: Offset(0.0, 0.0),
-    ).animate(
-      CurvedAnimation(
-        curve: Curves.easeInOut,
-        parent: _controller3,
-      ),
-    );
-
     // Animation Controller and Animation for the fourth container
     _controller4 = AnimationController(
       duration: Duration(seconds: 2),
@@ -89,7 +69,6 @@ class _animatedContainersState extends State<animatedContainers>
     // Start the animations
     _controller1.forward();
     _controller2.forward();
-    _controller3.forward();
     _controller4.forward();
   }
 
@@ -115,12 +94,6 @@ class _animatedContainersState extends State<animatedContainers>
           }),
           SizedBox(height: 16),
           // Row 2
-          buildAnimatedContainer(_animation3, "assets/images/ShayanSection/ContainerPics/who.png",
-              () {
-            // Add your navigation logic here
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => whoCsera()));
-          }),
           buildAnimatedContainer(_animation4, "assets/images/ShayanSection/ContainerPics/join.png",
               () {
             // Add your navigation logic here
@@ -176,7 +149,6 @@ class _animatedContainersState extends State<animatedContainers>
     // Dispose animation controllers to prevent memory leaks
     _controller1.dispose();
     _controller2.dispose();
-    _controller3.dispose();
     _controller4.dispose();
     super.dispose();
   }

@@ -100,7 +100,7 @@ class _whatisCseraState extends State<whatisCsera> {
                                 CircleAvatar(
                                   radius: 40,
                                   backgroundImage:
-                                  AssetImage("assets/images/ShayanSection/ContainerPics/waseem_abbas.jpeg"),
+                                  AssetImage("assets/images/FaisalSection/TeachersPics/waseem_abbas.jpeg"),
                                 ),
                                 // Right Side: Content
                                 Expanded(
