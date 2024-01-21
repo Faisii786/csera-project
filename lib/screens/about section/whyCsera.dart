@@ -143,7 +143,7 @@ class _whyCseraState extends State<whyCsera> {
                 titlePadding:
                 const EdgeInsets.symmetric(vertical: 25, horizontal: 10),
                 background: Image.asset(
-                  'assets/images/what-is-csera.png',
+                  'assets/images/ShayanSection/ContainerPics/why.png',
                   fit: BoxFit.cover,
                 ),
               ),
