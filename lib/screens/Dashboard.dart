@@ -1,6 +1,7 @@
 import 'package:csera_app/utility/colors.dart';
 import 'package:csera_app/widgets/appbar%20section/drawer.dart';
 import 'package:csera_app/widgets/about%20section/about_container.dart';
+import 'package:csera_app/widgets/course%20section/footer.dart';
 import 'package:csera_app/widgets/course%20section/training_cards.dart';
 import 'package:flutter/material.dart';
 import 'package:csera_app/widgets/slider_section/coursel.dart';
@@ -70,6 +71,7 @@ class _DashboardScreenState extends State<DashboardScreen>
             ),
             training_cards(),
             //logo_container(),
+            MyFooter(),
           ],
         ),
       ),

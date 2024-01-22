@@ -1,5 +1,7 @@
+import 'package:csera_app/utility/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class CoursesDetailWidget extends StatefulWidget {
   final String title;
@@ -36,10 +38,36 @@ class CoursesDetailWidget extends StatefulWidget {
 }
 
 class _CoursesDetailWidgetState extends State<CoursesDetailWidget> {
+  bool isExpanded = false;
+
+  late YoutubePlayerController controller;
+
+  @override
+  void initState() {
+    super.initState();
+    final videoID = YoutubePlayer.convertUrlToId(
+        "https://www.youtube.com/watch?v=YMx8Bbev6T4");
+    controller = YoutubePlayerController(
+      initialVideoId: videoID!,
+      flags: YoutubePlayerFlags(
+        autoPlay: false,
+        enableCaption: true,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: AppColors().AppBarColor,
+          onPressed: () {},
+          child: Text(
+            "Join",
+            style: GoogleFonts.roboto(color: Colors.white),
+          ),
+        ),
         body: Container(
           child: CustomScrollView(
             slivers: [
@@ -48,15 +76,13 @@ class _CoursesDetailWidgetState extends State<CoursesDetailWidget> {
                 expandedHeight: 300,
                 pinned: true,
                 flexibleSpace: FlexibleSpaceBar(
-                  expandedTitleScale: 1,
                   titlePadding:
                       const EdgeInsets.symmetric(vertical: 25, horizontal: 10),
-                  background: Opacity(
-                    opacity: 0.9,
-                    child: Image.asset(
-                      widget.imageUrl,
-                      fit: BoxFit.cover,
-                    ),
+                  background: YoutubePlayer(
+                    controller: controller,
+                    showVideoProgressIndicator: true,
+                    // You can customize the size of the video player here
+                    // height: 300,
                   ),
                 ),
               ),
@@ -148,28 +174,55 @@ class _CoursesDetailWidgetState extends State<CoursesDetailWidget> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            'What You Will Learn',
-                            style: TextStyle(
-                              fontSize: 22,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
-                            ),
-                          ),
-                          // Loop through the learning points
-                          for (String point in widget.whatYouWillLearn)
-                            ListTile(
-                              leading: Icon(
-                                Icons.check,
-                                color: Colors.green,
-                              ),
-                              title: Text(
-                                point,
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  color: const Color.fromARGB(255, 77, 77, 77),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'What You Will Learn',
+                                style: GoogleFonts.anekLatin(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: AppColors().AppBarColor,
                                 ),
                               ),
+                              IconButton(
+                                icon: Icon(
+                                  isExpanded
+                                      ? Icons.keyboard_arrow_up
+                                      : Icons.keyboard_arrow_down,
+                                  size: 30,
+                                  color: AppColors().AppBarColor,
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    isExpanded = !isExpanded;
+                                  });
+                                },
+                              ),
+                            ],
+                          ),
+                          if (isExpanded)
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                for (String point in widget.whatYouWillLearn)
+                                  ListTile(
+                                    visualDensity:
+                                        VisualDensity(vertical: -4.0),
+                                    leading: Icon(
+                                      Icons.check,
+                                      color: Colors.green,
+                                    ),
+                                    title: Text(
+                                      point,
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        color: const Color.fromARGB(
+                                            255, 77, 77, 77),
+                                      ),
+                                    ),
+                                  ),
+                              ],
                             ),
                         ],
                       ),
@@ -196,4 +249,19 @@ class _CoursesDetailWidgetState extends State<CoursesDetailWidget> {
       ),
     );
   }
+}
+
+Widget buildDetailRow(String label, String value) {
+  return Container(
+    margin: EdgeInsets.only(bottom: 8),
+    child: Row(
+      children: [
+        Text(
+          '$label',
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+        ),
+        Text(' $value'),
+      ],
+    ),
+  );
 }
