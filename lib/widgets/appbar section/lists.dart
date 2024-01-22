@@ -1,7 +1,6 @@
 import 'package:csera_app/screens/Dashboard.dart';
 import 'package:csera_app/screens/about%20section/whatisCsera.dart';
 import 'package:csera_app/widgets/contact%20section/contact%20us.dart';
-import 'package:csera_app/widgets/course%20section/course_container.dart';
 import 'package:csera_app/widgets/course%20section/courses_cards.dart';
 import 'package:csera_app/widgets/course%20section/training_cards.dart';
 import 'package:flutter/material.dart';
