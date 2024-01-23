@@ -3,12 +3,12 @@ import 'package:csera_app/screens/about%20section/whatisCsera.dart';
 import 'package:csera_app/screens/about%20section/whyCsera.dart';
 import 'package:flutter/material.dart';
 
-class animatedContainers extends StatefulWidget {
+class AnimatedContainers extends StatefulWidget {
   @override
-  _animatedContainersState createState() => _animatedContainersState();
+  _AnimatedContainersState createState() => _AnimatedContainersState();
 }
 
-class _animatedContainersState extends State<animatedContainers>
+class _AnimatedContainersState extends State<AnimatedContainers>
     with TickerProviderStateMixin {
   late AnimationController _controller1;
   late AnimationController _controller2;
@@ -22,7 +22,7 @@ class _animatedContainersState extends State<animatedContainers>
   void initState() {
     super.initState();
 
-    // Animation Controller and Animation for the first container
+    // Initialize the animation controllers and animations
     _controller1 = AnimationController(
       duration: Duration(seconds: 2),
       vsync: this,
@@ -37,7 +37,6 @@ class _animatedContainersState extends State<animatedContainers>
       ),
     );
 
-    // Animation Controller and Animation for the second container
     _controller2 = AnimationController(
       duration: Duration(seconds: 2),
       vsync: this,
@@ -51,7 +50,7 @@ class _animatedContainersState extends State<animatedContainers>
         parent: _controller2,
       ),
     );
-    // Animation Controller and Animation for the fourth container
+
     _controller4 = AnimationController(
       duration: Duration(seconds: 2),
       vsync: this,
@@ -74,63 +73,52 @@ class _animatedContainersState extends State<animatedContainers>
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // Row 1
           buildAnimatedContainer(_animation1, "assets/images/ShayanSection/ContainerPics/what.png",
-              () {
-            // Add your navigation logic here
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => whatisCsera()));
-          }),
+                  () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => whatisCsera()));
+              }),
           buildAnimatedContainer(_animation2, "assets/images/ShayanSection/ContainerPics/why.png",
-              () {
-            // Add your navigation logic here
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => whyCsera()));
-          }),
-          SizedBox(height: 16),
-          // Row 2
+                  () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => whyCsera()));
+              }),
+          SizedBox(height: screenWidth * 0.04),
           buildAnimatedContainer(_animation4, "assets/images/ShayanSection/ContainerPics/join.png",
-              () {
-            // Add your navigation logic here
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => SignUpForm()));
-          }),
-          SizedBox(height: 16),
+                  () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpForm()));
+              }),
+          SizedBox(height: screenWidth * 0.04),
         ],
       ),
     );
   }
 
-  // Widget for building Animated Container with Image and Navigation
   Widget buildAnimatedContainer(
       Animation<Offset> animation, String imagePath, VoidCallback onTap) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return GestureDetector(
       onTap: onTap,
       child: SlideTransition(
         position: animation,
         child: Padding(
-          padding: const EdgeInsets.all(6.0),
+          padding: EdgeInsets.all(screenWidth * 0.02),
           child: Container(
-            height: 150.0, // Adjusted container height
-            width: 150.0,
-            margin: EdgeInsets.symmetric(horizontal: 2.0, vertical: 2.0),
+            height: screenWidth * 0.3,
+            width: screenWidth * 0.3,
+            margin: EdgeInsets.symmetric(
+              horizontal: screenWidth * 0.005,
+              vertical: screenWidth * 0.005,
+            ),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.0),
-              // boxShadow: [
-              //   // BoxShadow(
-              //   //   color: Colors.grey.withOpacity(0.5),
-              //   //   spreadRadius: 4,
-              //   //   blurRadius: 7,
-              //   //   offset: Offset(0, 3),
-              //   // ),
-              // ],
             ),
-            // Image widget added here
             child: ClipRRect(
               borderRadius: BorderRadius.circular(16.0),
               child: Image.asset(
@@ -146,7 +134,6 @@ class _animatedContainersState extends State<animatedContainers>
 
   @override
   void dispose() {
-    // Dispose animation controllers to prevent memory leaks
     _controller1.dispose();
     _controller2.dispose();
     _controller4.dispose();
