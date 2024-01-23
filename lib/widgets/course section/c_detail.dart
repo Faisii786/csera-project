@@ -46,7 +46,7 @@ class _CoursesDetailWidgetState extends State<CoursesDetailWidget> {
   void initState() {
     super.initState();
     final videoID = YoutubePlayer.convertUrlToId(
-        "https://www.youtube.com/watch?v=YMx8Bbev6T4");
+        "https://youtu.be/-K23aIcaMrg?si=6y873Ep6ACHYfHl-");
     controller = YoutubePlayerController(
       initialVideoId: videoID!,
       flags: YoutubePlayerFlags(
@@ -72,9 +72,11 @@ class _CoursesDetailWidgetState extends State<CoursesDetailWidget> {
           child: CustomScrollView(
             slivers: [
               SliverAppBar(
+                //automaticallyImplyLeading: false,
+                elevation: 0,
                 backgroundColor: Colors.white,
-                expandedHeight: 300,
-                pinned: true,
+                expandedHeight: 200,
+                //pinned: true,
                 flexibleSpace: FlexibleSpaceBar(
                   titlePadding:
                       const EdgeInsets.symmetric(vertical: 25, horizontal: 10),

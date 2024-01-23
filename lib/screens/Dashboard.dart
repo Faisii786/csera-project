@@ -30,10 +30,11 @@ class _DashboardScreenState extends State<DashboardScreen>
           width: 80,
         ),
         actions: [
-          Icon(
-            Icons.search,
-            color: Colors.white,
-          ),
+          IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.search,
+              )),
         ],
       ),
       drawer: MyDrawer(),

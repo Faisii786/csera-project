@@ -159,7 +159,8 @@ class _courses_cardsState extends State<courses_cards> {
                             title: 'Cloud Computing',
                             imageUrl: '',
                             detailText: Descriptions().cyberDetailText,
-                            trainerImg: "",
+                            trainerImg:
+                                "assets/images/FaisalSection/TeachersPics/nasir_saleem.jpg",
                             trainerName: 'Nasir Saleem',
                             experience: '03 Years Experience',
                             speciality: 'Microsoft Technologies',
