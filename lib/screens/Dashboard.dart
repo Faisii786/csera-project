@@ -72,6 +72,18 @@ class _DashboardScreenState extends State<DashboardScreen>
             ),
             training_cards(),
             //logo_container(),
+            SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 10, right: 10),
+              child: Text(
+                "Our Projects",
+                style: GoogleFonts.roboto(
+                    fontWeight: FontWeight.bold, fontSize: 23),
+              ),
+            ),
+            training_cards(),
             MyFooter(),
           ],
         ),
