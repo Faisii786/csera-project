@@ -1,4 +1,4 @@
-import 'package:csera_app/screens/Dashboard.dart';
+import 'package:csera_app/screens/splash%20screen/first_splash.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,10 +13,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      
-      title: 'CS-ERA App',
-      theme: ThemeData.light(),
-      home: DashboardScreen(),
+
+      title: 'CSERA App',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+      home: FirstSplashScreen(),
     );
   }
 }

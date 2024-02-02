@@ -33,16 +33,14 @@ class _contact_usState extends State<contact_us> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    Text("Contact Us",style: TextStyle(fontSize: 40,color: Colors.white,fontWeight: FontWeight.w600),),
                     text_field(
                         TextInputType.text,
                         Icon(
                           Icons.person,
                           color: Colors.white,
                         ),
-                        Icon(
-                          Icons.drive_file_rename_outline,
-                          color: Colors.white,
-                        ),
+
                         Text(
                           "Name",
                           style: TextStyle(
@@ -53,10 +51,6 @@ class _contact_usState extends State<contact_us> {
                         TextInputType.emailAddress,
                         Icon(
                           Icons.email,
-                          color: Colors.white,
-                        ),
-                        Icon(
-                          Icons.drive_file_rename_outline,
                           color: Colors.white,
                         ),
                         Text(
@@ -71,10 +65,7 @@ class _contact_usState extends State<contact_us> {
                           Icons.transgender,
                           color: Colors.white,
                         ),
-                        Icon(
-                          Icons.drive_file_rename_outline,
-                          color: Colors.white,
-                        ),
+
                         Text(
                           "Gender",
                           style: TextStyle(
@@ -87,10 +78,7 @@ class _contact_usState extends State<contact_us> {
                           Icons.numbers_rounded,
                           color: Colors.white,
                         ),
-                        Icon(
-                          Icons.drive_file_rename_outline,
-                          color: Colors.white,
-                        ),
+
                         Text(
                           "Age",
                           style: TextStyle(
@@ -103,10 +91,7 @@ class _contact_usState extends State<contact_us> {
                           Icons.drive_file_rename_outline,
                           color: Colors.white,
                         ),
-                        Icon(
-                          Icons.drive_file_rename_outline,
-                          color: Colors.white,
-                        ),
+
                         Text(
                           "Address",
                           style: TextStyle(
@@ -117,10 +102,6 @@ class _contact_usState extends State<contact_us> {
                         TextInputType.text,
                         Icon(
                           Icons.add_circle_outline,
-                          color: Colors.white,
-                        ),
-                        Icon(
-                          Icons.drive_file_rename_outline,
                           color: Colors.white,
                         ),
                         Text(

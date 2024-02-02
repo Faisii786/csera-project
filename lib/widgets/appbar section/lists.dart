@@ -1,3 +1,4 @@
+import 'package:csera_app/Authentication/SignIn.dart';
 import 'package:csera_app/screens/Dashboard.dart';
 import 'package:csera_app/screens/about%20section/whatisCsera.dart';
 import 'package:csera_app/widgets/contact%20section/contact%20us.dart';
@@ -34,6 +35,9 @@ class lists extends StatelessWidget {
         }
         else if(value=="5"){
           Get.to(contact_us());
+        }
+        else if(value=="6"){
+          Get.to(SignIn());
         }
       },
     );

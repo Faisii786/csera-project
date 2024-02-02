@@ -46,7 +46,7 @@ class _DashboardScreenState extends State<DashboardScreen>
           children: [
             ImageCarousel(),
             ClickMoreSection(),
-            animatedContainers(),
+            AnimatedContainers(),
             SizedBox(
               height: 10,
             ),

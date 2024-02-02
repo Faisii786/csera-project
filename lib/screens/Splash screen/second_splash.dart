@@ -1,5 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:csera_app/screens/Dashboard.dart';
+import 'package:csera_app/screens/MainScreen.dart';
 import 'package:csera_app/utility/colors.dart';
 import 'package:csera_app/widgets/splash_widget.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +32,7 @@ class _SecondSplashScreenState extends State<SecondSplashScreen> {
       description:
           'Your courses are available at any time you want. Join us now! Start today with Csera, where learning meets innovation.',
     ),
-    DashboardScreen(),
+    Main_screen(),
   ];
 
   @override
@@ -66,7 +66,7 @@ class _SecondSplashScreenState extends State<SecondSplashScreen> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => DashboardScreen()));
+                            builder: (context) => Main_screen()));
                   },
                   child: Center(
                     child: Text(
