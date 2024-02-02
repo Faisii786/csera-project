@@ -50,7 +50,6 @@ class _AnimatedContainersState extends State<AnimatedContainers>
         parent: _controller2,
       ),
     );
-
     _controller4 = AnimationController(
       duration: Duration(seconds: 2),
       vsync: this,
@@ -111,16 +110,16 @@ class _AnimatedContainersState extends State<AnimatedContainers>
           padding: EdgeInsets.all(screenWidth * 0.02),
           child: Container(
             height: screenWidth * 0.3,
-            width: screenWidth * 0.3,
+            width: screenWidth * 0.292,
             margin: EdgeInsets.symmetric(
-              horizontal: screenWidth * 0.005,
+              horizontal: screenWidth * 0.00001,
               vertical: screenWidth * 0.005,
             ),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.0),
+              borderRadius: BorderRadius.circular(8.0),
             ),
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(16.0),
+              borderRadius: BorderRadius.circular(8.0),
               child: Image.asset(
                 imagePath,
                 fit: BoxFit.fill,

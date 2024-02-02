@@ -6,6 +6,8 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 
+import 'SignUp.dart';
+
 class SignIn extends StatelessWidget {
   final GlobalKey<FormState> formkey = GlobalKey<FormState>();
   SignIn({super.key});
@@ -15,7 +17,7 @@ class SignIn extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Login',
+          'SignIn',
           style: TextStyle(
               color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),
         ),
@@ -61,7 +63,7 @@ class Container1 extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   PasswordController getxController = PasswordController();
-  //AuthService auth = AuthService();
+  AuthService auth = AuthService();
 
   String? _validateEmail(String? value) {
     if (value == null || value.isEmpty) {
@@ -86,8 +88,8 @@ class Container1 extends StatelessWidget {
           children: [
             SizedBox(height: 40,),
             CircleAvatar(
-              radius: 80,
-              backgroundImage: AssetImage("assets/images/logo1.png"),
+              radius: 70,
+              backgroundImage: AssetImage("assets/images/logo3.jpeg"),
               child: AssetImage == null
                   ? Icon(
                 Icons.person,
@@ -107,7 +109,7 @@ class Container1 extends StatelessWidget {
             ),
             const Row(
               children: [
-                Text('Ready To Login',
+                Text('Ready To SignIn',
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,color: Colors.white)),
               ],
             ),
@@ -187,34 +189,35 @@ class Container1 extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            Container(
-              width: Get.width,
-              height: Get.height * 0.06,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: ElevatedButton(
-                onPressed: () {
-                  try {
-                    if (_formKey.currentState!.validate()) {
-                      // auth.SignIn(emailController.text, passwordController.text);
-                    }
-                  } catch (a) {
-                    print(a);
-                  }
-                },
-                style: ButtonStyle(
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      side: BorderSide(color: Colors.white), // Set border color to white
-                    ),
-                  ),
+            ElevatedButton(
+              onPressed: (){
+                if(_formKey.currentState!.validate()){
+                  auth.SignIn(emailController.text, passwordController.text);
+                }
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.grey,
+                minimumSize: const Size(double.infinity, 50),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8.0),
                 ),
-                child: Text('Login',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
               ),
+              child: Text("SignIn",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white,fontSize: 20),),
             ),
-
+            SizedBox(height: 30,),
+            ElevatedButton(
+              onPressed: (){
+                Get.to(()=>SignUpScreen());
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.grey,
+                minimumSize: const Size(double.infinity, 50),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+              ),
+              child: Text("Register",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white,fontSize: 20),),
+            ),
           ],
         ),
       ),

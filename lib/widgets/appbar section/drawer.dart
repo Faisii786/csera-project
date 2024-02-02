@@ -1,11 +1,13 @@
-import 'package:csera_app/widgets/appbar%20section/lists.dart';
+import 'package:csera_app/widgets/appbar section/lists.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-
 
 import '../../utility/colors.dart';
 
 class MyDrawer extends StatelessWidget {
+  final User? user = FirebaseAuth.instance.currentUser;
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -15,18 +17,13 @@ class MyDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         dragStartBehavior: DragStartBehavior.start,
         children: [
-          UserAccountsDrawerHeader(
-            currentAccountPictureSize: Size.fromRadius(40),
-            accountName: Text('John Doe'),
-            accountEmail: Text('john.doe@example.com'),
-            currentAccountPicture: CircleAvatar(
-              backgroundImage: AssetImage(
-                  'assets/images/ShayanSection/ContainerPics/what.png'),
-            ),
-            decoration: BoxDecoration(
-              color: Colors.transparent, // Customize the background color
-            ),
+          SizedBox(height: 50,),
+          CircleAvatar(
+            radius: 56,
+            backgroundImage: AssetImage(
+                'assets/images/logo.png'),
           ),
+          SizedBox(height: 20,),
           Column(
             children: [
               lists(
@@ -93,19 +90,44 @@ class MyDrawer extends StatelessWidget {
                     color: Colors.white,
                   ),
                   "5"),
-              Divider(),
-              lists(
-                  'SiginIn',
-                  Icon(
-                    Icons.navigate_next,
-                    color: Colors.white,
-                  ),
-                  Colors.white,
-                  Icon(
-                    Icons.account_box,
-                    color: Colors.white,
-                  ),
-                  "6"),
+              if (user == null)
+                Column(
+                  children: [
+                    Divider(),
+                    lists(
+                      'SignIn',
+                      Icon(
+                        Icons.navigate_next,
+                        color: Colors.white,
+                      ),
+                      Colors.white,
+                      Icon(
+                        Icons.account_box,
+                        color: Colors.white,
+                      ),
+                      "6",
+                    ),
+                  ],
+                )
+              else
+                Column(
+                  children: [
+                    Divider(),
+                    lists(
+                      'SignOut',
+                      Icon(
+                        Icons.navigate_next,
+                        color: Colors.white,
+                      ),
+                      Colors.white,
+                      Icon(
+                        Icons.exit_to_app,
+                        color: Colors.white,
+                      ),
+                      "7",
+                    ),
+                  ],
+                ),
             ],
           ),
         ], //listview children
