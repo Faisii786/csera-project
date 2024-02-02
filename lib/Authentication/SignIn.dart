@@ -1,5 +1,6 @@
 import 'package:csera_app/Authentication/AuthFunctions.dart';
 import 'package:csera_app/Controllers/passwordController.dart';
+import 'package:csera_app/utility/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -18,7 +19,7 @@ class SignIn extends StatelessWidget {
           style: TextStyle(
               color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),
         ),
-        backgroundColor: Colors.purple,
+        backgroundColor: AppColors().AppBarColor,
         leading: IconButton(
           onPressed: () {
             Get.back();
@@ -27,16 +28,30 @@ class SignIn extends StatelessWidget {
           color: Colors.white,
         ),
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              Container1(),
-            ],
+      body: Stack(
+        children: [
+          //image
+          Container(
+            width: Get.width,
+            height: Get.height * 0.9,
+            color: AppColors().AppBarColor,
           ),
-        ),
-      ),
+          //content
+          Container(
+            child:  SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    Container1(),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
+      )
+
     );
   }
 }
@@ -46,7 +61,7 @@ class Container1 extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   PasswordController getxController = PasswordController();
-  AuthService auth = AuthService();
+  //AuthService auth = AuthService();
 
   String? _validateEmail(String? value) {
     if (value == null || value.isEmpty) {
@@ -69,19 +84,31 @@ class Container1 extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            SizedBox(height: 40,),
+            CircleAvatar(
+              radius: 80,
+              backgroundImage: AssetImage("assets/images/logo1.png"),
+              child: AssetImage == null
+                  ? Icon(
+                Icons.person,
+                size: 30,
+                color: Colors.white,
+              )
+                  : null,
+            ),
             const SizedBox(
-              height: 10,
+              height: 30,
             ),
             const Row(
               children: [
                 Text('Welcome Back',
-                    style: TextStyle(fontSize: 45, fontWeight: FontWeight.bold)),
+                    style: TextStyle(fontSize: 45, fontWeight: FontWeight.bold,color: Colors.white)),
               ],
             ),
             const Row(
               children: [
                 Text('Ready To Login',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,color: Colors.white)),
               ],
             ),
             const SizedBox(
@@ -91,110 +118,102 @@ class Container1 extends StatelessWidget {
               controller: emailController,
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
-                  labelText: 'Email',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  )
+                labelText: 'Email',
+                labelStyle: TextStyle(color: Colors.white), // Set label color to white
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(color: Colors.white), // Set border color to white
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(color: Colors.white), // Set enabled border color to white
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(color: Colors.greenAccent), // Set focused border color to white
+                ),
               ),
+              style: TextStyle(color: Colors.white), // Set text color to white
               validator: _validateEmail,
             ),
             const SizedBox(height: 12),
-            Obx((){
-              return
-                TextFormField(
-                  keyboardType: TextInputType.visiblePassword,
-                  controller: passwordController,
-                  obscureText: getxController.obsecure.value,
-                  decoration: InputDecoration(
-                    labelText: 'Password',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    suffixIcon: IconButton(
-                      onPressed: () {
-                        getxController.togglePasswordVisibility();
-                      },
-                      icon: Icon(
-                        getxController.obsecure.value
-                            ? Icons.visibility_off
-                            : Icons.visibility,
-                      ),
-                    ),
+            Obx(() {
+              return TextFormField(
+                keyboardType: TextInputType.visiblePassword,
+                controller: passwordController,
+                obscureText: getxController.obsecure.value,
+                decoration: InputDecoration(
+                  labelText: 'Password',
+                  labelStyle: TextStyle(color: Colors.white), // Set label color to white
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide(color: Colors.white), // Set border color to white
                   ),
-                  validator: _validatePassword,
-                );
-            }),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Row(
-                    children: [
-                      Checkbox(value: true, onChanged: (value) {}),
-                      const Text("Remember Me"),
-                    ],
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide(color: Colors.white), // Set enabled border color to white
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide(color: Colors.greenAccent), // Set focused border color to white
+                  ),
+                  suffixIcon: IconButton(
+                    onPressed: () {
+                      getxController.togglePasswordVisibility();
+                    },
+                    icon: Icon(
+                      getxController.obsecure.value
+                          ? Icons.visibility_off
+                          : Icons.visibility,
+                      color: Colors.white, // Set icon color to white
+                    ),
                   ),
                 ),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: TextButton(
-                    onPressed: () {
-                     //
-                    },
-                    child: const Text('Forget Password'),
-                  ),
+                style: TextStyle(color: Colors.white), // Set text color to white
+                validator: _validatePassword,
+              );
+            }),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                TextButton(
+                  onPressed: () {
+                   //
+                  },
+                  child: const Text('Forget Password',style: TextStyle(color: Colors.white),),
                 ),
               ],
             ),
             const SizedBox(
               height: 30,
             ),
-            Row(
-              children: [
-                ElevatedButton(
-                  onPressed: ()  {
-                    try {
-                      if (_formKey.currentState!.validate()) {
-                        auth.SignIn(emailController.text, passwordController.text);
-                      }
-                    } catch (a) {
-                      print(a);
+            Container(
+              width: Get.width,
+              height: Get.height * 0.06,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: ElevatedButton(
+                onPressed: () {
+                  try {
+                    if (_formKey.currentState!.validate()) {
+                      // auth.SignIn(emailController.text, passwordController.text);
                     }
-                  },
-                  child: Text('Login'),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 35,
-            ),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Flexible(
-                  child: Divider(
-                    thickness: 0.5,
-                    color: Colors.grey,
-                    indent: 60,
-                    endIndent: 5,
+                  } catch (a) {
+                    print(a);
+                  }
+                },
+                style: ButtonStyle(
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      side: BorderSide(color: Colors.white), // Set border color to white
+                    ),
                   ),
                 ),
-                Text(
-                  'Or SignIn With',
-                  style: TextStyle(color: Colors.grey),
-                ),
-                Flexible(
-                  child: Divider(
-                    thickness: 0.5,
-                    color: Colors.grey,
-                    indent: 5,
-                    endIndent: 60,
-                  ),
-                ),
-              ],
+                child: Text('Login',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
+              ),
             ),
-            const SizedBox(height: 30),
 
           ],
         ),
