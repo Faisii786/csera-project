@@ -1,5 +1,4 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:csera_app/screens/Dashboard.dart';
 import 'package:csera_app/screens/MainScreen.dart';
 import 'package:csera_app/utility/colors.dart';
 import 'package:csera_app/widgets/splash_widget.dart';

@@ -15,7 +15,7 @@ class _FirstSplashScreenState extends State<FirstSplashScreen> {
     super.initState();
 
     Timer(
-      Duration(seconds: 6),
+      Duration(seconds: 1),
       () {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(

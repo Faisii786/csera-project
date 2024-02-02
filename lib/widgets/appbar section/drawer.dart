@@ -93,6 +93,19 @@ class MyDrawer extends StatelessWidget {
                     color: Colors.white,
                   ),
                   "5"),
+              Divider(),
+              lists(
+                  'SiginIn',
+                  Icon(
+                    Icons.navigate_next,
+                    color: Colors.white,
+                  ),
+                  Colors.white,
+                  Icon(
+                    Icons.account_box,
+                    color: Colors.white,
+                  ),
+                  "6"),
             ],
           ),
         ], //listview children
