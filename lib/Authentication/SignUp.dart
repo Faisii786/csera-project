@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import '../Controllers/passwordController.dart';
+import '../utility/colors.dart';
 import 'AuthFunctions.dart';
 
 class SignUpScreen extends StatelessWidget {
@@ -13,7 +14,7 @@ class SignUpScreen extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   FirebaseAuth auth = FirebaseAuth.instance;
-  PasswordController controller = PasswordController();
+  PasswordController getxController = PasswordController();
   AuthService _auth = AuthService();
 
   SignUpScreen({super.key});
@@ -54,11 +55,12 @@ class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors().AppBarColor,
       appBar: AppBar(
+        backgroundColor: AppColors().AppBarColor,
         iconTheme: const IconThemeData(
           color: Colors.white,
         ),
-        backgroundColor: Colors.purple,
         title: const Text('Sign Up',style: TextStyle(color: Colors.white),),
       ),
       body: Padding(
@@ -71,41 +73,70 @@ class SignUpScreen extends StatelessWidget {
               children: [
                 Center(
                   child: const Text(
-                    "Let's Create Your Account", style: TextStyle(fontSize: 30),),
+                    "Let's Create Your Account", style: TextStyle(fontSize: 30,color: Colors.white),),
                 ),
                 const SizedBox(height: 30,),
                 TextFormField(
                   controller: emailController,
+                  keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
-                      labelText: 'Email',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(3),
-                      )
+                    fillColor: Colors.white,
+                    labelText: 'Email',
+                    labelStyle: TextStyle(color: Colors.white), // Set label color to white
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide(color: Colors.white), // Set border color to white
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide(color: Colors.white), // Set enabled border color to white
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide(color: Colors.greenAccent), // Set focused border color to white
+                    ),
                   ),
+                  style: TextStyle(color: Colors.white), // Set text color to white
                   validator: _validateEmail,
                 ),
+
                 const SizedBox(height: 12),
-                Obx((){
-                  return
-                    TextFormField(
-                      obscureText: controller.obsecure.value,
-                      controller: passwordController,
-                      decoration: InputDecoration(
-                          labelText: 'Password',
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(3),
-                          ),
-                          suffixIcon: IconButton(
-                            onPressed: (){
-                              controller.togglePasswordVisibility();
-                            },
-                            icon: controller.obsecure.value
-                                ? const Icon(Icons.visibility_off)
-                                : const Icon(Icons.visibility),
-                          )
+                Obx(() {
+                  return TextFormField(
+                    keyboardType: TextInputType.visiblePassword,
+                    controller: passwordController,
+                    obscureText: getxController.obsecure.value,
+                    decoration: InputDecoration(
+                      fillColor: Colors.white,
+                      labelText: 'Password',
+                      labelStyle: TextStyle(color: Colors.white), // Set label color to white
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.white), // Set border color to white
                       ),
-                      validator: _validatePassword,
-                    );
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.white), // Set enabled border color to white
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.greenAccent), // Set focused border color to white
+                      ),
+                      suffixIcon: IconButton(
+                        onPressed: () {
+                          getxController.togglePasswordVisibility();
+                        },
+                        icon: Icon(
+                          getxController.obsecure.value
+                              ? Icons.visibility_off
+                              : Icons.visibility,
+                          color: Colors.white, // Set icon color to white
+                        ),
+                      ),
+                    ),
+                    style: TextStyle(color: Colors.white), // Set text color to white
+                    validator: _validatePassword,
+                  );
                 }),
                 const SizedBox(height: 30),
                 //elevated Button
@@ -128,12 +159,12 @@ class SignUpScreen extends StatelessWidget {
                 //text Button
                 Row(
                   children: [
-                    Text("Already have an account"),
+                    Text("Already have an account",style: TextStyle(color: Colors.white),),
                     TextButton(
                       onPressed: () {
                         Get.to(SignIn());
                       },
-                      child: const Text('Login'),
+                      child: const Text('Login',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),),
                     ),
                   ],
                 ),

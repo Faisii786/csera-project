@@ -120,6 +120,7 @@ class Container1 extends StatelessWidget {
               controller: emailController,
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
+                fillColor: Colors.white,
                 labelText: 'Email',
                 labelStyle: TextStyle(color: Colors.white), // Set label color to white
                 border: OutlineInputBorder(
@@ -145,6 +146,7 @@ class Container1 extends StatelessWidget {
                 controller: passwordController,
                 obscureText: getxController.obsecure.value,
                 decoration: InputDecoration(
+                  fillColor: Colors.white,
                   labelText: 'Password',
                   labelStyle: TextStyle(color: Colors.white), // Set label color to white
                   border: OutlineInputBorder(
