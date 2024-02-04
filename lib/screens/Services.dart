@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
-class ProjectsScreen extends StatefulWidget {
+class ServicesScreen extends StatefulWidget {
   @override
-  State<ProjectsScreen> createState() => _ProjectsScreenState();
+  State<ServicesScreen> createState() => _ServicesScreenState();
 }
 
-class _ProjectsScreenState extends State<ProjectsScreen> {
+class _ServicesScreenState extends State<ServicesScreen> {
   final List<String> items = List.generate(6, (index) => 'Item $index');
 
   List<String> title = [
@@ -38,7 +38,7 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
         automaticallyImplyLeading: false,
         backgroundColor: AppColors().AppBarColor,
         title: Text(
-          'Projects',
+          'Services',
           style: GoogleFonts.aBeeZee(color: Colors.white),
         ),
       ),
@@ -64,8 +64,8 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
                         child: Text(
                           title[index],
                           style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,color: Colors.white
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,color: Colors.white
                           ),
                         ),
                       ),
