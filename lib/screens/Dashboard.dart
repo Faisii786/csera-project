@@ -1,3 +1,4 @@
+import 'package:csera_app/google_map/map_page.dart';
 import 'package:csera_app/utility/colors.dart';
 import 'package:csera_app/widgets/appbar%20section/drawer.dart';
 import 'package:csera_app/widgets/about%20section/about_container.dart';
@@ -31,8 +32,13 @@ class _DashboardScreenState extends State<DashboardScreen>
         ),
         actions: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Icon(Icons.location_on),
+            padding: const EdgeInsets.only(right: 10),
+            child: GestureDetector(
+                onTap: ()async{
+                  print("click");
+                 await MapPage();
+                },
+                child: Icon(Icons.location_on)),
           ),
           ],
       ),
@@ -83,6 +89,7 @@ class _DashboardScreenState extends State<DashboardScreen>
               ),
             ),
             training_cards(),
+
             MyFooter(),
           ],
         ),
