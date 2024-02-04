@@ -15,9 +15,14 @@ class SignIn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          leading: Icon(
-            Icons.arrow_back,
-            color: Colors.black,
+          leading: GestureDetector(
+            onTap: () {
+              Get.back();
+            },
+            child: Icon(
+              Icons.arrow_back,
+              color: Colors.black,
+            ),
           ),
           title: Text(
             "Login",
