@@ -1,5 +1,4 @@
 import 'package:csera_app/screens/Dashboard.dart';
-import 'package:csera_app/screens/about%20section/whatisCsera.dart';
 import 'package:csera_app/utility/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
