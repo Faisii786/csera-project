@@ -29,13 +29,6 @@ class _DashboardScreenState extends State<DashboardScreen>
           "assets/images/logo2.png",
           width: 80,
         ),
-        actions: [
-          IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.search,
-              )),
-        ],
       ),
       drawer: MyDrawer(),
       backgroundColor: AppColors().BgColor,
