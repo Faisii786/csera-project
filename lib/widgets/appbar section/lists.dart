@@ -7,6 +7,8 @@ import 'package:csera_app/widgets/course%20section/courses_cards.dart';
 import 'package:csera_app/widgets/course%20section/training_cards.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../google_map/map_page.dart';
 class lists extends StatelessWidget {
    final String title;
    final Icon? icon;
@@ -43,6 +45,9 @@ class lists extends StatelessWidget {
         else if(value=="7"){
           AuthService _auth =AuthService();
           _auth.SignOut();
+        }
+        else if(value=="8"){
+          Get.to(()=>MapPage());
         }
       },
     );

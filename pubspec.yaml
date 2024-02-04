@@ -47,7 +47,11 @@ dependencies:
   firebase_storage: ^11.6.3
   firebase_core: ^2.25.2
   image_picker: ^1.0.7
+  google_maps_flutter: ^2.5.0
+  location: ^5.0.0
+  flutter_polyline_points: ^2.0.0
   stylish_bottom_bar: ^1.0.3
+
 
 dev_dependencies:
   flutter_test:

@@ -15,9 +15,14 @@ class SignIn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          leading: Icon(
-            Icons.arrow_back,
-            color: Colors.black,
+          leading: GestureDetector(
+            onTap: () {
+              Get.back();
+            },
+            child: Icon(
+              Icons.arrow_back,
+              color: Colors.black,
+            ),
           ),
           title: Text(
             "Login",
@@ -45,8 +50,8 @@ class Container1 extends StatelessWidget {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  PasswordController getxController = PasswordController();
-  AuthService auth = AuthService();
+  final PasswordController getxController = PasswordController();
+  final AuthService auth = AuthService();
 
   String? _validateEmail(String? value) {
     if (value == null || value.isEmpty) {
