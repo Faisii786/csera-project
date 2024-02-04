@@ -1,4 +1,5 @@
 import 'package:csera_app/screens/Dashboard.dart';
+import 'package:csera_app/screens/projects.dart';
 import 'package:csera_app/utility/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:stylish_bottom_bar/model/bar_items.dart';
@@ -22,7 +23,7 @@ class _MyBottomNavbarState extends State<MyBottomNavbar> {
           controller: _controller,
           children: [
             DashboardScreen(),
-            Center(child: Text("Projects")),
+            ProjectsScreen(),
             Center(child: Text("Services")),
             Center(child: Text("Profile"))
           ],
