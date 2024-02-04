@@ -1,6 +1,8 @@
 import 'package:csera_app/utility/colors.dart';
+import 'package:csera_app/widgets/course%20section/courses_cards.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ProjectsScreen extends StatefulWidget {
   @override
@@ -11,12 +13,12 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
   final List<String> items = List.generate(6, (index) => 'Item $index');
 
   List<String> title = [
-    "Title:1",
-    "Title:2",
-    "Title:3",
-    "Title:4",
-    "Title:5",
-    "Title:6",
+    "Project 1",
+    "Project 2",
+    "Project 3",
+    "Project 4",
+    "Project 5",
+    "Project 6",
   ];
 
   List<String> subtitle = [
@@ -49,16 +51,11 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: AppColors().AppBarColor,
         title: Text(
           'Projects',
-          style: TextStyle(color: Colors.white),
-        ),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () {
-            Get.back;
-          },
+          style: GoogleFonts.aBeeZee(color: Colors.white),
         ),
       ),
       body: ListView.builder(
@@ -78,17 +75,14 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Image.asset(
-                          images[index],
-                          fit: BoxFit.cover,
-                          height: 100,
-                          width: 100,
-                        ),
                         Expanded(
                           child: ExpansionTile(
                             onExpansionChanged: (isExpanded) {
                               if (isExpanded) {
-                                context.findAncestorStateOfType<State<ProjectsScreen>>()?.setState(() {});
+                                context
+                                    .findAncestorStateOfType<
+                                        State<ProjectsScreen>>()
+                                    ?.setState(() {});
                               }
                             },
                             shape: RoundedRectangleBorder(
@@ -97,7 +91,8 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
                             textColor: Colors.black,
                             title: Text(
                               title[index],
-                              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 20),
                             ),
                             subtitle: Text(
                               subtitle[index],
