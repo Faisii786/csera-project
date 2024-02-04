@@ -23,6 +23,9 @@ if (flutterVersionName == null) {
 }
 
 android {
+    defaultConfig{
+        multiDexEnabled = true
+    }
     namespace "com.example.csera_app"
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
@@ -65,4 +68,6 @@ flutter {
     source '../..'
 }
 
-dependencies {}
+dependencies {
+    implementation("androidx.multidex:multidex:2.0.1")
+}
