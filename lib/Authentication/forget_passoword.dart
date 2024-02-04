@@ -66,8 +66,8 @@ class Container1 extends StatelessWidget {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  PasswordController getxController = PasswordController();
-  AuthService auth = AuthService();
+  final PasswordController getxController = PasswordController();
+  final AuthService auth = AuthService();
 
   String? _validateEmail(String? value) {
     if (value == null || value.isEmpty) {
