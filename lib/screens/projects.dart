@@ -1,7 +1,5 @@
 import 'package:csera_app/utility/colors.dart';
-import 'package:csera_app/widgets/course%20section/courses_cards.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ProjectsScreen extends StatefulWidget {
