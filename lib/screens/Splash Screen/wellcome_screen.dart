@@ -2,7 +2,6 @@ import 'package:csera_app/Authentication/SignUp.dart';
 import 'package:csera_app/screens/Splash%20Screen/Splash_button2.dart';
 import 'package:csera_app/screens/Splash%20Screen/splash_button1.dart';
 import 'package:csera_app/screens/bottomNavBar.dart';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
