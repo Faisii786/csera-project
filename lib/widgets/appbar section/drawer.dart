@@ -93,19 +93,6 @@ class MyDrawer extends StatelessWidget {
                     color: Colors.white,
                   ),
                   "5"),
-              Divider(),
-              lists(
-                  'Location',
-                  Icon(
-                    Icons.navigate_next,
-                    color: Colors.white,
-                  ),
-                  Colors.white,
-                  Icon(
-                    Icons.contact_page_outlined,
-                    color: Colors.white,
-                  ),
-                  "8"),
               if (user == null)
                 Column(
                   children: [

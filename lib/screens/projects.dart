@@ -1,7 +1,5 @@
 import 'package:csera_app/utility/colors.dart';
-import 'package:csera_app/widgets/course%20section/courses_cards.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ProjectsScreen extends StatefulWidget {
@@ -22,30 +20,15 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
   ];
 
   List<String> subtitle = [
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.um dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur",
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.um dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur",
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.um dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur",
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.um dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur",
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.um dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur",
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.um dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur",
   ];
 
-  List<String> extraText = [
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
-  ];
-  List<String> images = [
-    "assets/images/ShayanSection/ContainerPics/join.png",
-    "assets/images/ShayanSection/ContainerPics/join.png",
-    "assets/images/ShayanSection/ContainerPics/join.png",
-    "assets/images/ShayanSection/ContainerPics/join.png",
-    "assets/images/ShayanSection/ContainerPics/join.png",
-    "assets/images/ShayanSection/ContainerPics/join.png",
-  ];
+  List<bool> isExpandedList = List.generate(6, (index) => false);
 
   @override
   Widget build(BuildContext context) {
@@ -62,63 +45,75 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
         scrollDirection: Axis.vertical,
         itemCount: items.length,
         itemBuilder: (BuildContext, index) {
-          return Column(
-            children: [
-              Card(
-                elevation: 8,
-                shadowColor: AppColors().BgColor,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(
-                          child: ExpansionTile(
-                            onExpansionChanged: (isExpanded) {
-                              if (isExpanded) {
-                                context
-                                    .findAncestorStateOfType<
-                                        State<ProjectsScreen>>()
-                                    ?.setState(() {});
-                              }
-                            },
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(0),
-                            ),
-                            textColor: Colors.black,
-                            title: Text(
-                              title[index],
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 20),
-                            ),
-                            subtitle: Text(
-                              subtitle[index],
-                              style: TextStyle(fontSize: 15),
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                            tilePadding: EdgeInsets.all(5),
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(5),
-                                child: Text(
-                                  extraText[index],
-                                  style: TextStyle(fontSize: 15),
-                                ),
-                              ),
-                            ],
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: AppColors().AppBarColor,
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(12.0,12.0, 0.0 ,0.0),
+                        child: Text(
+                          title[index],
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,color: Colors.white
                           ),
                         ),
-                      ],
-                    ),
-                  ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(12.0, 0.0, 12.0, 12.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
+                              subtitle[index],
+                              style: TextStyle(fontSize: 15,color: Colors.white),
+                              maxLines: isExpandedList[index] ? null : 2,
+                            ),
+                            if (!isExpandedList[index])
+                              GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    isExpandedList[index] = true;
+                                  });
+                                },
+                                child: Align(
+                                  alignment: Alignment.topLeft,
+                                  child: Text(
+                                    'View More',
+                                    style: TextStyle(color: Colors.blue,fontSize: 14,fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                              ),
+                            if (isExpandedList[index])
+                              GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    isExpandedList[index] = false;
+                                  });
+                                },
+                                child: Text(
+                                  'View Less',
+                                  style: TextStyle(color: Colors.blue),
+                                ),
+                              ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              SizedBox(height: 10),
-            ],
+              ],
+            ),
           );
         },
       ),

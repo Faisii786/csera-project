@@ -25,7 +25,7 @@ class lists extends StatelessWidget {
       onTap:() {
         if(value=="1")
           {
-        Get.to(DashboardScreen());
+        Get.back();
           }
         else if(value=="2"){
         Get.to(whatisCsera());
@@ -45,9 +45,6 @@ class lists extends StatelessWidget {
         else if(value=="7"){
           AuthService _auth =AuthService();
           _auth.SignOut();
-        }
-        else if(value=="8"){
-          Get.to(()=>MapPage());
         }
       },
     );
