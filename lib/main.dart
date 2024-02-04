@@ -1,5 +1,5 @@
 import 'package:csera_app/firebase_options.dart';
-import 'package:csera_app/screens/splash%20screen/first_splash.dart';
+import 'package:csera_app/screens/Splash%20Screen/splash_scree.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: FirstSplashScreen(),
+      home: SplashScreen(),
     );
   }
 }

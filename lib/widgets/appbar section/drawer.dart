@@ -17,13 +17,16 @@ class MyDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         dragStartBehavior: DragStartBehavior.start,
         children: [
-          SizedBox(height: 50,),
+          SizedBox(
+            height: 50,
+          ),
           CircleAvatar(
             radius: 56,
-            backgroundImage: AssetImage(
-                'assets/images/logo.png'),
+            backgroundImage: AssetImage('assets/images/logo.png'),
           ),
-          SizedBox(height: 20,),
+          SizedBox(
+            height: 20,
+          ),
           Column(
             children: [
               lists(
