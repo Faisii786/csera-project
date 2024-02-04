@@ -13,56 +13,61 @@ class MyFooter extends StatelessWidget {
     return Container(
       color: AppColors().AppBarColor,
       width: double.infinity,
-      height: 60,
-      // decoration: BoxDecoration(
-      //     color: AppColors().AppBarColor,
-      //     borderRadius: BorderRadius.only(
-      //         topLeft: Radius.circular(10), topRight: Radius.circular(10))),
+      height: 100,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            // Make the image size responsive
-            Image.asset(
-              "assets/images/logo2.png",
-              width: screenWidth * 0.2, // 20% of screen width
-            ),
-            // Use AutoSizeText for responsive text
-            Expanded(
-              child: AutoSizeText(
-                "© 2024 All rights reseverd , CSERA",
-                style: TextStyle(color: Colors.white),
-                maxLines: 1,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  // Make the image size responsive
+                  Image.asset(
+                    "assets/images/logo2.png",
+                    width: screenWidth * 0.2, // 20% of screen width
+                  ),
+                  // Use AutoSizeText for responsive text
+                  Expanded(
+                    child: AutoSizeText(
+                      "© 2024 All rights reseverd , CSERA",
+                      style: TextStyle(color: Colors.white),
+                      maxLines: 1,
+                    ),
+                  ),
+                ],
               ),
-            ),
-            // Responsive Icons
-            Row(
-              children: [
-                Icon(
-                  Icons.facebook,
-                  color: Colors.white,
-                  size: screenWidth * 0.05, // 5% of screen width
-                ),
-                SizedBox(
-                  width: 8,
-                ),
-                Icon(
-                  Icons.fax_outlined,
-                  color: Colors.white,
-                  size: screenWidth * 0.05,
-                ),
-                SizedBox(
-                  width: 8,
-                ),
-                Icon(
-                  Icons.safety_check,
-                  color: Colors.white,
-                  size: screenWidth * 0.05,
-                ),
-              ],
-            )
-          ],
+              SizedBox(
+                height: 10,
+              ),
+              // Responsive Icons
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Icon(
+                    Icons.facebook,
+                    color: Colors.white,
+                    size: screenWidth * 0.08, // 5% of screen width
+                  ),
+                  Icon(
+                    Icons.fax_outlined,
+                    color: Colors.white,
+                    size: screenWidth * 0.08,
+                  ),
+                  Icon(
+                    Icons.link_outlined,
+                    color: Colors.white,
+                    size: screenWidth * 0.08,
+                  ),
+                  Icon(
+                    Icons.youtube_searched_for_sharp,
+                    color: Colors.white,
+                    size: screenWidth * 0.08,
+                  )
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
