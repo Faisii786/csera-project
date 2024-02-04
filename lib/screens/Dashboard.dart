@@ -34,7 +34,7 @@ class _DashboardScreenState extends State<DashboardScreen>
             padding: const EdgeInsets.all(8.0),
             child: Icon(Icons.location_on),
           ),
-          ],
+        ],
       ),
       drawer: MyDrawer(),
       backgroundColor: AppColors().BgColor,
@@ -74,16 +74,10 @@ class _DashboardScreenState extends State<DashboardScreen>
             SizedBox(
               height: 10,
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 10, right: 10),
-              child: Text(
-                "Our Projects",
-                style: GoogleFonts.roboto(
-                    fontWeight: FontWeight.bold, fontSize: 23),
-              ),
-            ),
-            training_cards(),
             MyFooter(),
+            SizedBox(
+              height: 50,
+            ),
           ],
         ),
       ),
