@@ -1,3 +1,4 @@
+import 'package:csera_app/google_map/map_page.dart';
 import 'package:csera_app/utility/colors.dart';
 import 'package:csera_app/widgets/appbar%20section/drawer.dart';
 import 'package:csera_app/widgets/about%20section/about_container.dart';
@@ -34,6 +35,15 @@ class _DashboardScreenState extends State<DashboardScreen>
         ),
         actions: [
           Padding(
+<<<<<<< HEAD
+            padding: const EdgeInsets.only(right: 10),
+            child: GestureDetector(
+                onTap: ()async{
+                  print("click");
+                 await MapPage();
+                },
+                child: Icon(Icons.location_on)),
+=======
             padding: const EdgeInsets.all(8.0),
             child: IconButton(
                 onPressed: () {
@@ -41,6 +51,7 @@ class _DashboardScreenState extends State<DashboardScreen>
                 },
                 icon: Icon(Icons.location_on),
             ),
+>>>>>>> 819880e3a0dd8a0387ec1a726f3df0680e747826
           ),
         ],
       ),
@@ -82,6 +93,19 @@ class _DashboardScreenState extends State<DashboardScreen>
             SizedBox(
               height: 10,
             ),
+<<<<<<< HEAD
+            Padding(
+              padding: const EdgeInsets.only(left: 10, right: 10),
+              child: Text(
+                "Our Projects",
+                style: GoogleFonts.roboto(
+                    fontWeight: FontWeight.bold, fontSize: 23),
+              ),
+            ),
+            training_cards(),
+
+=======
+>>>>>>> 819880e3a0dd8a0387ec1a726f3df0680e747826
             MyFooter(),
             SizedBox(
               height: 50,

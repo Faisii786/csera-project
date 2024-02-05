@@ -14,52 +14,48 @@ class MapPage extends StatefulWidget {
 class _MapPageState extends State<MapPage> {
   Location _locationController = Location();
 
-  final Completer<GoogleMapController> _mapController = Completer<GoogleMapController>();
-
-  //static const LatLng _pGooglePlex = LatLng(33.6500, -72.9769);
-  //static const LatLng _pApplePark = LatLng(33.6500, -72.9769);
+  final Completer<GoogleMapController> _mapController =
+  Completer<GoogleMapController>();
+  static const LatLng _defaultLocation = LatLng(33.6500, 72.9769); // Default location if location services are off
   static const LatLng _pCSERAPVT = LatLng(33.6500, 72.9769); // Coordinates for CSERA PVT Software House
-  LatLng? _currentP = null;
+  LatLng? _currentP;
 
   Map<PolylineId, Polyline> polylines = {};
 
   @override
   void initState() {
     super.initState();
-    getLocationUpdates().then(
-          (_) {
-        getPolylinePoints().then((coordinates) {
-          generatePolyLineFromPoints(coordinates);
-        });
-      },
-    );
+    initMap();
+  }
+
+  Future<void> initMap() async {
+    bool locationEnabled = await _checkLocationEnabled();
+    if (locationEnabled) {
+      getLocationUpdates().then(
+            (_) {
+          getPolylinePoints().then((coordinates) {
+            generatePolyLineFromPoints(coordinates);
+          });
+        },
+      );
+    } else {
+      setState(() {
+        _currentP = _defaultLocation;
+      });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _currentP == null
-          ? const Center(
-        child: Text("Loading..."),
-      )
-          : GoogleMap(
+      body: GoogleMap(
         onMapCreated: (GoogleMapController controller) =>
             _mapController.complete(controller),
         initialCameraPosition: CameraPosition(
-          target: _pCSERAPVT,  // i change this
+          target: _currentP ?? _defaultLocation,
           zoom: 13,
         ),
         markers: {
-          // Marker(
-          //   markerId: MarkerId("_sourceLocation"),
-          //   icon: BitmapDescriptor.defaultMarker,
-          //   position: _pGooglePlex,
-          // ),
-          // Marker(
-          //   markerId: MarkerId("_destionationLocation"),
-          //   icon: BitmapDescriptor.defaultMarker,
-          //   position: _pApplePark,
-          // ),
           Marker(
             markerId: MarkerId("_cseraPvtLocation"),
             icon: BitmapDescriptor.defaultMarker,
@@ -69,11 +65,11 @@ class _MapPageState extends State<MapPage> {
         },
         polylines: Set<Polyline>.of(polylines.values),
         myLocationEnabled: true,
-        myLocationButtonEnabled: false, // Disable the default location button
+        myLocationButtonEnabled: false,
         circles: {
           Circle(
             circleId: CircleId("_currentLocationCircle"),
-            center: _currentP!,
+            center: _currentP ?? _defaultLocation,
             radius: 20,
             fillColor: Colors.blue,
             strokeWidth: 0,
@@ -118,7 +114,8 @@ class _MapPageState extends State<MapPage> {
       if (currentLocation.latitude != null &&
           currentLocation.longitude != null) {
         setState(() {
-          _currentP = LatLng(currentLocation.latitude!, currentLocation.longitude!);
+          _currentP =
+              LatLng(currentLocation.latitude!, currentLocation.longitude!);
           _cameraToPosition(_currentP!);
         });
       }
@@ -130,7 +127,6 @@ class _MapPageState extends State<MapPage> {
     PolylinePoints polylinePoints = PolylinePoints();
     PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(
       'AIzaSyAe75WjCqY6PvX25uzHNFNRZzcFn3aMP6I',
-      //PointLatLng(_pGooglePlex.latitude, _pGooglePlex.longitude),
       PointLatLng(_pCSERAPVT.latitude, _pCSERAPVT.longitude),
       PointLatLng(_pCSERAPVT.latitude, _pCSERAPVT.longitude),
       travelMode: TravelMode.driving,
@@ -156,5 +152,13 @@ class _MapPageState extends State<MapPage> {
     setState(() {
       polylines[id] = polyline;
     });
+  }
+
+  Future<bool> _checkLocationEnabled() async {
+    bool serviceEnabled = await _locationController.serviceEnabled();
+    if (!serviceEnabled) {
+      serviceEnabled = await _locationController.requestService();
+    }
+    return serviceEnabled;
   }
 }
