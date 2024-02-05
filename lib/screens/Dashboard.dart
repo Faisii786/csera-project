@@ -91,7 +91,6 @@ class _DashboardScreenState extends State<DashboardScreen>
               ),
             ),
             training_cards(),
-
             MyFooter(),
             SizedBox(
               height: 50,

@@ -86,7 +86,7 @@ class _AnimatedContainersState extends State<AnimatedContainers>
               }),
           buildAnimatedContainer(_animation2, "assets/images/ShayanSection/ContainerPics/why.png",
                   () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => whyCsera()));
+
               }),
           SizedBox(height: screenWidth * 0.04),
           buildAnimatedContainer(_animation4, "assets/images/ShayanSection/ContainerPics/join.png",
