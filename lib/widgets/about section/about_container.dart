@@ -2,6 +2,8 @@ import 'package:csera_app/screens/about%20section/joinNow.dart';
 import 'package:csera_app/screens/about%20section/whatisCsera.dart';
 import 'package:flutter/material.dart';
 
+import '../../screens/About section/whyCsera.dart';
+
 class AnimatedContainers extends StatefulWidget {
   @override
   _AnimatedContainersState createState() => _AnimatedContainersState();

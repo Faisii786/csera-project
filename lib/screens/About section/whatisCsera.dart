@@ -187,7 +187,7 @@ class _whatisCseraState extends State<whatisCsera> {
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),
-                                        buildDetailRow('Speciality:', 'Artificial Inteligence Expert'),
+                                        buildDetailRow('Speciality:', 'Artificial'),
                                         buildDetailRow('Experience:', '7 years'),
                                         buildDetailRow('Achievements:', 'Best Developer 2020'),
                                         buildDetailRow('Email:', 'chairman@cs-era.com'),

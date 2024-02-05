@@ -68,6 +68,16 @@ class MyFooter extends StatelessWidget {
 
                   GestureDetector(
                     onTap: () {
+                      _launchURL('https://www.instagram.com/csera_private_ltd/?igsh=MzRlODBiNWFlZA%3D%3D');
+                    },
+                    child: Icon(
+                      FontAwesomeIcons.instagram,
+                      color: Colors.white.withOpacity(0.8),
+                      size: screenWidth * 0.08, // 5% of screen width
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
                       _launchURL('https://twitter.com/era_creati81002');
                     },
                     child: Icon(

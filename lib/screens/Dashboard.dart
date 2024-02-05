@@ -9,9 +9,8 @@ import 'package:csera_app/widgets/slider_section/coursel.dart';
 import 'package:csera_app/widgets/slider_section/about_text.dart';
 import 'package:csera_app/widgets/course%20section/courses_cards.dart';
 import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../google_map/map_page.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -36,13 +35,13 @@ class _DashboardScreenState extends State<DashboardScreen>
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 10),
+
             child: IconButton(
                 onPressed: () {
                   Get.to(()=> MapPage());
                 },
                 icon: Icon(Icons.location_on),
             ),
-
           ),
         ],
       ),
@@ -94,8 +93,6 @@ class _DashboardScreenState extends State<DashboardScreen>
               ),
             ),
             training_cards(),
-
-
             MyFooter(),
             SizedBox(
               height: 50,
