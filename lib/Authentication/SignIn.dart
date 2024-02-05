@@ -5,7 +5,6 @@ import 'package:csera_app/screens/bottomNavBar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import 'SignUp.dart';
 
 class SignIn extends StatelessWidget {
