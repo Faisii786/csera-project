@@ -21,6 +21,7 @@ class _MyBottomNavbarState extends State<MyBottomNavbar> {
       canPop: false,
       child: Scaffold(
         body: PageView(
+          physics: NeverScrollableScrollPhysics(),
           controller: _controller,
           children: [
             DashboardScreen(),

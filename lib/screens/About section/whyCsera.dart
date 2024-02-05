@@ -87,6 +87,7 @@ class _whyCseraState extends State<whyCsera> {
                 style: TextStyle(fontSize: 15),
                 maxLines: showFullText ? null : 2,
                 overflow: TextOverflow.visible,
+                textAlign: TextAlign.justify,
               ),
               const SizedBox(height: 8),
               InkWell(
