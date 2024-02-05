@@ -8,10 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:csera_app/widgets/slider_section/coursel.dart';
 import 'package:csera_app/widgets/slider_section/about_text.dart';
 import 'package:csera_app/widgets/course%20section/courses_cards.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../google_map/map_page.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -35,23 +32,20 @@ class _DashboardScreenState extends State<DashboardScreen>
         ),
         actions: [
           Padding(
-<<<<<<< HEAD
             padding: const EdgeInsets.only(right: 10),
             child: GestureDetector(
-                onTap: ()async{
+                onTap: () async {
                   print("click");
-                 await MapPage();
+                  await MapPage();
                 },
                 child: Icon(Icons.location_on)),
-=======
-            padding: const EdgeInsets.all(8.0),
-            child: IconButton(
-                onPressed: () {
-                  Get.to(()=> MapPage());
-                },
-                icon: Icon(Icons.location_on),
-            ),
->>>>>>> 819880e3a0dd8a0387ec1a726f3df0680e747826
+            //padding: const EdgeInsets.all(8.0),
+            // child: IconButton(
+            //     onPressed: () {
+            //       Get.to(()=> MapPage());
+            //     },
+            //     icon: Icon(Icons.location_on),
+            // ),
           ),
         ],
       ),
@@ -93,7 +87,7 @@ class _DashboardScreenState extends State<DashboardScreen>
             SizedBox(
               height: 10,
             ),
-<<<<<<< HEAD
+
             Padding(
               padding: const EdgeInsets.only(left: 10, right: 10),
               child: Text(
@@ -104,8 +98,6 @@ class _DashboardScreenState extends State<DashboardScreen>
             ),
             training_cards(),
 
-=======
->>>>>>> 819880e3a0dd8a0387ec1a726f3df0680e747826
             MyFooter(),
             SizedBox(
               height: 50,
