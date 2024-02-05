@@ -16,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 3), () {
+    Timer(Duration(seconds: 5), () {
       Get.to(() => WellcomeScreen(),
           transition: Transition.fadeIn, duration: Duration(seconds: 2));
     });
