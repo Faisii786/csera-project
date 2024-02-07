@@ -1,7 +1,7 @@
 import 'package:csera_app/screens/Dashboard.dart';
-import 'package:csera_app/screens/Profile.dart';
-import 'package:csera_app/screens/Services.dart';
-import 'package:csera_app/screens/projects.dart';
+import 'package:csera_app/screens/TabBarScreens/Profile.dart';
+import 'package:csera_app/screens/TabBarScreens/Services.dart';
+import 'package:csera_app/screens/TabBarScreens/projects.dart';
 import 'package:csera_app/utility/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:stylish_bottom_bar/model/bar_items.dart';

@@ -52,7 +52,7 @@ class lists extends StatelessWidget {
               TextButton(
                 onPressed: () {
                   FirebaseAuth.instance.signOut();
-                  Get.to(() =>SignIn());
+                  Get.offAll(() =>WellcomeScreen());
                 },
                 child: Text("Logout"),
               ),

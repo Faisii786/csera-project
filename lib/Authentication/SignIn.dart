@@ -10,18 +10,14 @@ import 'SignUp.dart';
 
 class SignIn extends StatefulWidget {
   SignIn({super.key});
-
   @override
   State<SignIn> createState() => _SignInState();
 }
 
 class _SignInState extends State<SignIn> {
   final TextEditingController emailController = TextEditingController();
-
   final TextEditingController passwordController = TextEditingController();
-
   final PasswordController getxController = PasswordController();
-
   bool loading = false;
 
   void ValidateFunction() {
@@ -54,15 +50,7 @@ class _SignInState extends State<SignIn> {
           context, MaterialPageRoute(builder: (context) => MyBottomNavbar()));
       emailController.clear();
       passwordController.clear();
-      Get.snackbar("Login Success", "",
-          borderRadius: 0,
-          snackPosition: SnackPosition.TOP,
-          backgroundColor: Colors.black,
-          colorText: Colors.white,
-          duration: Duration(seconds: 2),
-          barBlur: 0,
-        margin: EdgeInsets.all(0),
-      );
+      showSnakBar("Welcome !");
       setState(() {
         loading = false;
       });

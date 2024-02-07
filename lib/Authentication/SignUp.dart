@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../Controllers/passwordController.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -58,183 +57,218 @@ class _SignUpScreenState extends State<SignUpScreen> {
         loading = true;
       });
 
-      UserCredential userCredential = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(
-          email: emailController.text, password: passwordController.text);
+      UserCredential userCredential = await auth.createUserWithEmailAndPassword(
+        email: emailController.text,
+        password: passwordController.text,
+      );
 
       await sendEmailVerification(userCredential.user!);
+      SnakBarKey.currentState?.showSnackBar(
+          SnackBar(content: Text("Please verify your email to continue")));
 
-      showSnackBar("Account Created Successfully");
+      // Wait for email verification
+      User? user = await auth.currentUser;
+      await user?.reload();
 
-      // Check if the user is verified before navigating
-      if (userCredential.user!.emailVerified) {
-        Get.to(() => MyBottomNavbar());
+      if (user?.emailVerified == true) {
+        Get.offAll(() => MyBottomNavbar());
       } else {
-        showSnackBar("Please verify your email to continue");
+        SnakBarKey.currentState?.showSnackBar(
+            SnackBar(content: Text("Verification unsuccessful")));
       }
-
+    } on FirebaseAuthException catch (e) {
+      String errorMessage = "An error occurred. Please try again later.";
+      if (e.code == "email-already-in-use") {
+        errorMessage = "Email is already taken.";
+      } else if (e.code == "invalid-email") {
+        errorMessage = "Email is not valid.";
+      } else if (e.code == "weak-password") {
+        errorMessage = "Password is weak.";
+      }
+      SnakBarKey.currentState
+          ?.showSnackBar(SnackBar(content: Text(errorMessage)));
+    } finally {
       setState(() {
         loading = false;
       });
-    } on FirebaseAuthException catch (e) {
-      print("Error creating account: $e");
-      showSnackBar("Failed to create account: $e");
     }
   }
 
   // Function to validate email using a regular expression
   bool isValidEmail(String email) {
-    final emailRegExp =
-    RegExp(r'^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$');
+    final emailRegExp = RegExp(r'^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$');
     return emailRegExp.hasMatch(email);
   }
 
-  // Snackbar function
-  void showSnackBar(String message) {
-    final snackBar = SnackBar(
-      content: Text(message),
-      duration: Duration(seconds: 4),
-    );
-    ScaffoldMessenger.of(context).showSnackBar(snackBar);
-  }
+  final SnakBarKey = GlobalKey<ScaffoldMessengerState>();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        iconTheme: const IconThemeData(
-          color: Colors.black,
+    return ScaffoldMessenger(
+      key: SnakBarKey,
+      child: Scaffold(
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          iconTheme: const IconThemeData(
+            color: Colors.black,
+          ),
+          title: const Text(
+            'Sign up',
+            style: TextStyle(color: Colors.black),
+          ),
         ),
-        title: const Text(
-          'Sign up',
-          style: TextStyle(color: Colors.black),
-        ),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Form(
-          key: _formKey,
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Center(
-                  child: const Text(
-                    "Let's Create Your Account",
-                    style: TextStyle(fontSize: 30, color: Colors.black),
-                  ),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                TextFormField(
-                  controller: firstNameController,
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(
-                    labelText: 'First name',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
+        body: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Form(
+            key: _formKey,
+            autovalidateMode: AutovalidateMode.always,
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Center(
+                    child: const Text(
+                      "Let's Create Your Account",
+                      style: TextStyle(fontSize: 30, color: Colors.black),
                     ),
                   ),
-                ),
-                const SizedBox(height: 12),
-                TextFormField(
-                  controller: lastNameController,
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(
-                    labelText: 'Last name',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
+                  const SizedBox(
+                    height: 30,
                   ),
-                ),
-                const SizedBox(height: 12),
-                TextFormField(
-                  controller: emailController,
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(
-                    labelText: 'Email',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 12),
-                Obx(() {
-                  return TextFormField(
-                    keyboardType: TextInputType.visiblePassword,
-                    controller: passwordController,
-                    obscureText: getxController.obsecure.value,
+                  TextFormField(
+                    controller: firstNameController,
+                    keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
-                      labelText: 'Password',
+                      labelText: 'First name',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      suffixIcon: IconButton(
-                        onPressed: () {
-                          getxController.togglePasswordVisibility();
-                        },
-                        icon: Icon(
-                          getxController.obsecure.value
-                              ? Icons.visibility_off
-                              : Icons.visibility,
+                    ),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "please enter first-name";
+                      }
+                      return null;
+                    },
+                  ),
+                  const SizedBox(height: 12),
+                  TextFormField(
+                    controller: lastNameController,
+                    keyboardType: TextInputType.emailAddress,
+                    decoration: InputDecoration(
+                      labelText: 'Last name',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "please enter last-name";
+                      }
+                      return null;
+                    },
+                  ),
+                  const SizedBox(height: 12),
+                  TextFormField(
+                    controller: emailController,
+                    keyboardType: TextInputType.emailAddress,
+                    decoration: InputDecoration(
+                      labelText: 'Email',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "please enter email";
+                      } else if (!isValidEmail(emailController.text)) {
+                        return "please enter valid email";
+                      }
+                      return null;
+                    },
+                  ),
+                  const SizedBox(height: 12),
+                  Obx(() {
+                    return TextFormField(
+                      keyboardType: TextInputType.visiblePassword,
+                      controller: passwordController,
+                      obscureText: getxController.obsecure.value,
+                      decoration: InputDecoration(
+                        labelText: 'Password',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        suffixIcon: IconButton(
+                          onPressed: () {
+                            getxController.togglePasswordVisibility();
+                          },
+                          icon: Icon(
+                            getxController.obsecure.value
+                                ? Icons.visibility_off
+                                : Icons.visibility,
+                          ),
                         ),
                       ),
-                    ),
-                  );
-                }),
-                const SizedBox(height: 30),
-                // Elevated Button
-                ElevatedButton(
-                  onPressed: loading ? null : ValidateFunction,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.black,
-                    minimumSize: const Size(double.infinity, 50),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
-                  ),
-                  child: loading
-                      ? CupertinoActivityIndicator(
-                    color: Colors.white,
-                  )
-                      : Text(
-                    "Sign up",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        fontSize: 20),
-                  ),
-                ),
-                const SizedBox(height: 20),
-                // Text Button
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Already have an account ! ",
-                      style: GoogleFonts.roboto(
-                          color: Colors.black, fontSize: 16),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Get.to(() => SignIn());
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "please enter password";
+                        }
+                        return null;
                       },
-                      child: Text(
-                        "Login",
-                        style: GoogleFonts.roboto(
-                            color: const Color.fromARGB(255, 61, 31, 114),
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold),
+                    );
+                  }),
+                  const SizedBox(height: 30),
+                  // Elevated Button
+                  ElevatedButton(
+                    onPressed: loading ? null : ValidateFunction,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.black,
+                      minimumSize: const Size(double.infinity, 50),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0),
                       ),
                     ),
-                  ],
-                ),
-              ],
+                    child: loading
+                        ? CupertinoActivityIndicator(
+                            color: Colors.white,
+                          )
+                        : Text(
+                            "Sign up",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                fontSize: 20),
+                          ),
+                  ),
+                  const SizedBox(height: 20),
+                  // Text Button
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Already have an account ! ",
+                        style: GoogleFonts.roboto(
+                            color: Colors.black, fontSize: 16),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Get.to(() => SignIn());
+                        },
+                        child: Text(
+                          "Login",
+                          style: GoogleFonts.roboto(
+                              color: const Color.fromARGB(255, 61, 31, 114),
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),

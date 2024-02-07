@@ -1,4 +1,4 @@
-import 'package:csera_app/Authentication/SignIn.dart';
+import 'package:csera_app/screens/bottomNavBar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -34,8 +34,6 @@ class _ContactUsState extends State<ContactUs> {
   String? validatePhone(String? value) {
     if (value == null || value.isEmpty) {
       return 'Phone number is required!';
-    } else if (value.length != 12 || !value.startsWith('92')) {
-      return 'Please enter a valid 12-digit phone number starting with "92".';
     }
     return null;
   }
@@ -46,6 +44,7 @@ class _ContactUsState extends State<ContactUs> {
     });
     if(useremail==null){
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Please Signin First')));
+      isLoading = false;
     }
     else{
       final url = Uri.parse("https://api.emailjs.com/api/v1.0/email/send");
@@ -75,7 +74,7 @@ class _ContactUsState extends State<ContactUs> {
         isLoading = false;
       });
       if (response.statusCode == 200) {
-        Get.to(()=>SignIn());
+        Get.to(()=>MyBottomNavbar());
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('Email Sent !'),
@@ -134,24 +133,6 @@ class _ContactUsState extends State<ContactUs> {
                   ),
                 ),
               ),
-              // SizedBox(height: 10,),
-              // TextFormField(
-              //   onTap: () {
-              //     setState(() {
-              //       _formKey.currentState?.validate();
-              //     });
-              //   },
-              //   validator: validateEmail,
-              //   controller: emailController,
-              //   keyboardType: TextInputType.emailAddress,
-              //   decoration: InputDecoration(
-              //     labelText: 'Email',
-              //     hintText: 'email@gmail.com',
-              //     border: OutlineInputBorder(
-              //       borderRadius: BorderRadius.circular(5),
-              //     ),
-              //   ),
-              // ),
               SizedBox(height: 10,),
               TextFormField(
                 onTap: () {
