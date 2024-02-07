@@ -10,7 +10,7 @@ class BottombarController extends GetxController{
     DashboardScreen(),
     whatisCsera(),
     whatisCsera(),
-    contact_us(),
+    ContactUs(),
   ];
 
   increase(int value){

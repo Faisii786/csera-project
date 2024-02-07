@@ -62,7 +62,7 @@ class _SignInState extends State<SignIn> {
         showSnakBar(
             "Invalid Credentials ! Please enter valid email and password");
       } else if (e.code == 'user-not-found') {
-        showSnakBar("Email does not foud");
+        showSnakBar("Email does not found");
       } else if (e.code == 'wrong-password') {
         showSnakBar("Password is incorrect");
       }

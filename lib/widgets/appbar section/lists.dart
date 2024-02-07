@@ -1,8 +1,10 @@
 import 'package:csera_app/Authentication/SignIn.dart';
+import 'package:csera_app/screens/Splash%20Screen/wellcome_screen.dart';
 import 'package:csera_app/screens/about%20section/whatisCsera.dart';
 import 'package:csera_app/widgets/contact%20section/contact%20us.dart';
 import 'package:csera_app/widgets/course%20section/courses_cards.dart';
 import 'package:csera_app/widgets/course%20section/training_cards.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -32,11 +34,30 @@ class lists extends StatelessWidget {
         } else if (value == "4") {
           Get.to(courses_cards());
         } else if (value == "5") {
-          Get.to(contact_us());
+          Get.to(ContactUs());
         } else if (value == "6") {
-          Get.to(SignIn());
+          Get.to(()=>SignIn());
         } else if (value == "7") {
-          Get.to(() => SignIn());
+          Get.defaultDialog(
+            title: "Logout",
+            middleText: "Are you sure you want to logout?",
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Get.back();
+                },
+                child: Text("Cancel"),
+              ),
+              SizedBox(width: 40),
+              TextButton(
+                onPressed: () {
+                  FirebaseAuth.instance.signOut();
+                  Get.to(() =>WellcomeScreen());
+                },
+                child: Text("Logout"),
+              ),
+            ],
+          );
         }
       },
     );
