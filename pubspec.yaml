@@ -89,6 +89,7 @@ flutter:
      - assets/images/FaisalSection/SplashScreenImages/
      - assets/images/FaisalSection/TeachersPics/
      - assets/images/FaisalSection/TrainingProfilePics/
+     - assets/images/tayabsection/
   # To add assets to your application, add an assets section, like this:
 
 
