@@ -21,50 +21,50 @@ class _courses_cardsState extends State<courses_cards> {
           children: [
             Row(
               children: [
-                CourseCard(
-                    imagePath:
-                        "assets/images/FaisalSection/CourseProfilePics/amazon_profile.png",
-                    title: 'Amazon',
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => CoursesDetailWidget(
-                            title: 'Amazon',
-                            imageUrl: '',
-                            detailText: Descriptions().cyberDetailText,
-                            trainerImg:
-                                "assets/images/FaisalSection/TeachersPics/zulfiqar_ali.jpg",
-                            trainerName: 'Zulfiqar Ali Nasir',
-                            experience: '3 Months Experience',
-                            speciality:
-                                'Amazon Fba wholesale and private expert',
-                            skills:
-                                'Product huntung, Product Research, keyword searching, PPC Expert, LLC creation,Account Creation, Product Plan of action strategies and calculations,Product Listing and Listing Optimization, Product Content writing and Amazon account Taxation',
-                            achievements:
-                                'Certified Amazon FBA  course from Smart Future King',
-                            email: 'zulfiqar27490@iqraisb.edu.pk',
-                            phone: '+92 303 5978667',
-                            whatYouWillLearn: [
-                              'Introduction to cybersecurity',
-                              'Network security fundamentals',
-                              'Web application security',
-                              'Incident response and handling',
-                              'Cryptography basics',
-                              'Security policy and governance',
-                              'Risk management in cybersecurity',
-                              'Ethical hacking techniques',
-                              'Security best practices',
-                              'Emerging trends in cybersecurity',
-                            ],
-                          ),
-                        ),
-                      );
-                    }),
-                SizedBox(
-                  height: 10,
-                  width: 10,
-                ),
+                // CourseCard(
+                //     imagePath:
+                //         "assets/images/FaisalSection/CourseProfilePics/amazon_profile.png",
+                //     title: 'Amazon',
+                //     onTap: () {
+                //       Navigator.push(
+                //         context,
+                //         MaterialPageRoute(
+                //           builder: (context) => CoursesDetailWidget(
+                //             title: 'Amazon',
+                //             imageUrl: '',
+                //             detailText: Descriptions().cyberDetailText,
+                //             trainerImg:
+                //                 "assets/images/FaisalSection/TeachersPics/zulfiqar_ali.jpg",
+                //             trainerName: 'Zulfiqar Ali Nasir',
+                //             experience: '3 Months Experience',
+                //             speciality:
+                //                 'Amazon Fba wholesale and private expert',
+                //             skills:
+                //                 'Product huntung, Product Research, keyword searching, PPC Expert, LLC creation,Account Creation, Product Plan of action strategies and calculations,Product Listing and Listing Optimization, Product Content writing and Amazon account Taxation',
+                //             achievements:
+                //                 'Certified Amazon FBA  course from Smart Future King',
+                //             email: 'zulfiqar27490@iqraisb.edu.pk',
+                //             phone: '+92 303 5978667',
+                //             whatYouWillLearn: [
+                //               'Introduction to cybersecurity',
+                //               'Network security fundamentals',
+                //               'Web application security',
+                //               'Incident response and handling',
+                //               'Cryptography basics',
+                //               'Security policy and governance',
+                //               'Risk management in cybersecurity',
+                //               'Ethical hacking techniques',
+                //               'Security best practices',
+                //               'Emerging trends in cybersecurity',
+                //             ],
+                //           ),
+                //         ),
+                //       );
+                //     }),
+                // SizedBox(
+                //   height: 10,
+                //   width: 10,
+                // ),
                 CourseCard(
                     imagePath:
                         "assets/images/FaisalSection/CourseProfilePics/cyber_profile.png",
@@ -74,6 +74,8 @@ class _courses_cardsState extends State<courses_cards> {
                         context,
                         MaterialPageRoute(
                           builder: (context) => CoursesDetailWidget(
+                            videoUrl:
+                                "https://youtu.be/El6HkCQ_AeM?si=8G5RlYg--BFE_gSV",
                             title: 'Cyber Security',
                             imageUrl: '',
                             detailText: Descriptions().cyberDetailText,
@@ -115,6 +117,8 @@ class _courses_cardsState extends State<courses_cards> {
                         context,
                         MaterialPageRoute(
                           builder: (context) => CoursesDetailWidget(
+                            videoUrl:
+                                "https://youtu.be/NDqasekFNLA?si=6TFM7gxvcFEjLO_p",
                             title: 'Artificial Intelligence',
                             imageUrl: '',
                             detailText: Descriptions().cyberDetailText,
@@ -156,6 +160,8 @@ class _courses_cardsState extends State<courses_cards> {
                         context,
                         MaterialPageRoute(
                           builder: (context) => CoursesDetailWidget(
+                            videoUrl:
+                                "https://youtu.be/C3OXT_8JyVM?si=cBroKVsjo-y89DqM",
                             title: 'Cloud Computing',
                             imageUrl: '',
                             detailText: Descriptions().cyberDetailText,
@@ -185,46 +191,47 @@ class _courses_cardsState extends State<courses_cards> {
                         ),
                       );
                     }),
-                SizedBox(
-                  height: 10,
-                  width: 10,
-                ),
-                CourseCard(
-                    imagePath:
-                        "assets/images/FaisalSection/CourseProfilePics/networking_profile.png",
-                    title: 'Networking',
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => CoursesDetailWidget(
-                            title: 'Networking',
-                            imageUrl: '',
-                            detailText: Descriptions().cyberDetailText,
-                            trainerImg: "",
-                            trainerName: 'Riffat Razzaq',
-                            experience: '5 years',
-                            speciality: 'Networking',
-                            skills: 'Management',
-                            achievements: 'Gold Medalist',
-                            email: 'riffat@gmail.com',
-                            phone: '0340 8119801',
-                            whatYouWillLearn: [
-                              'Introduction to Networking',
-                              'OSI Model and TCP/IP Protocol Suite',
-                              'Network Devices and Topologies',
-                              'IP Addressing and Subnetting',
-                              'Routing and Switching Concepts',
-                              'Wireless Networking',
-                              'Network Security Fundamentals',
-                              'Troubleshooting Network Issues',
-                              'IPv6 and Future Trends in Networking',
-                              'Hands-on Networking Labs',
-                            ],
-                          ),
-                        ),
-                      );
-                    }),
+                // SizedBox(
+                //   height: 10,
+                //   width: 10,
+                // ),
+                // CourseCard(
+                //     imagePath:
+                //         "assets/images/FaisalSection/CourseProfilePics/networking_profile.png",
+                //     title: 'Networking',
+                //     onTap: () {
+                //       Navigator.push(
+                //         context,
+                //         MaterialPageRoute(
+                //           builder: (context) => CoursesDetailWidget(
+                //             videoUrl: "https://youtu.be/-K23aIcaMrg?si=6y873Ep6ACHYfHl-",
+                //             title: 'Networking',
+                //             imageUrl: '',
+                //             detailText: Descriptions().cyberDetailText,
+                //             trainerImg: "",
+                //             trainerName: 'Riffat Razzaq',
+                //             experience: '5 years',
+                //             speciality: 'Networking',
+                //             skills: 'Management',
+                //             achievements: 'Gold Medalist',
+                //             email: 'riffat@gmail.com',
+                //             phone: '0340 8119801',
+                //             whatYouWillLearn: [
+                //               'Introduction to Networking',
+                //               'OSI Model and TCP/IP Protocol Suite',
+                //               'Network Devices and Topologies',
+                //               'IP Addressing and Subnetting',
+                //               'Routing and Switching Concepts',
+                //               'Wireless Networking',
+                //               'Network Security Fundamentals',
+                //               'Troubleshooting Network Issues',
+                //               'IPv6 and Future Trends in Networking',
+                //               'Hands-on Networking Labs',
+                //             ],
+                //           ),
+                //         ),
+                //       );
+                //     }),
                 SizedBox(
                   height: 10,
                   width: 10,
@@ -238,6 +245,8 @@ class _courses_cardsState extends State<courses_cards> {
                         context,
                         MaterialPageRoute(
                           builder: (context) => CoursesDetailWidget(
+                            videoUrl:
+                                "https://youtu.be/nDLCvWUDEsc?si=K21Sun3d3E8e7Xrs",
                             title: 'Python Programming',
                             imageUrl: '',
                             detailText: Descriptions().cyberDetailText,
