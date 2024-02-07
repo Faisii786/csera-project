@@ -1,11 +1,9 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:csera_app/screens/About%20section/whatisCsera.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../utility/colors.dart';
 import 'Splash Screen/wellcome_screen.dart';
 
@@ -17,7 +15,6 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  FirebaseFirestore firestore = FirebaseFirestore.instance;
   var userId = FirebaseAuth.instance.currentUser!.uid;
   var useremail = FirebaseAuth.instance.currentUser!.email;
   bool loading = false;
