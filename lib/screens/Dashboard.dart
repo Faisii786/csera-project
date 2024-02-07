@@ -1,3 +1,4 @@
+import 'package:csera_app/google_map/map_page.dart';
 import 'package:csera_app/utility/colors.dart';
 import 'package:csera_app/widgets/appbar%20section/drawer.dart';
 import 'package:csera_app/widgets/about%20section/about_container.dart';
@@ -7,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:csera_app/widgets/slider_section/coursel.dart';
 import 'package:csera_app/widgets/slider_section/about_text.dart';
 import 'package:csera_app/widgets/course%20section/courses_cards.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -29,6 +31,17 @@ class _DashboardScreenState extends State<DashboardScreen>
           "assets/images/logo2.png",
           width: 80,
         ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10),
+            child: IconButton(
+                onPressed: () {
+                  Get.to(()=> MapPage());
+                },
+                icon: Icon(Icons.location_on),
+            ),
+          ),
+        ],
       ),
       drawer: MyDrawer(),
       backgroundColor: AppColors().BgColor,
@@ -78,6 +91,9 @@ class _DashboardScreenState extends State<DashboardScreen>
             ),
             training_cards(),
             MyFooter(),
+            SizedBox(
+              height: 50,
+            ),
           ],
         ),
       ),

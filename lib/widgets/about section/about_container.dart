@@ -1,7 +1,9 @@
 import 'package:csera_app/screens/about%20section/joinNow.dart';
 import 'package:csera_app/screens/about%20section/whatisCsera.dart';
-import 'package:csera_app/screens/about%20section/whyCsera.dart';
 import 'package:flutter/material.dart';
+
+import '../../screens/About section/whyCsera.dart';
+
 
 class AnimatedContainers extends StatefulWidget {
   @override
@@ -85,7 +87,7 @@ class _AnimatedContainersState extends State<AnimatedContainers>
               }),
           buildAnimatedContainer(_animation2, "assets/images/ShayanSection/ContainerPics/why.png",
                   () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => whyCsera()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => whyCsera()));
               }),
           SizedBox(height: screenWidth * 0.04),
           buildAnimatedContainer(_animation4, "assets/images/ShayanSection/ContainerPics/join.png",

@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class CoursesDetailWidget extends StatefulWidget {
+  final String videoUrl;
   final String title;
   final String imageUrl;
   final String detailText;
@@ -19,6 +20,7 @@ class CoursesDetailWidget extends StatefulWidget {
 
   const CoursesDetailWidget({
     Key? key,
+    required this.videoUrl,
     required this.title,
     required this.imageUrl,
     required this.detailText,
@@ -45,13 +47,13 @@ class _CoursesDetailWidgetState extends State<CoursesDetailWidget> {
   @override
   void initState() {
     super.initState();
-    final videoID = YoutubePlayer.convertUrlToId(
-        "https://youtu.be/-K23aIcaMrg?si=6y873Ep6ACHYfHl-");
+    final videoID = YoutubePlayer.convertUrlToId(widget.videoUrl);
     controller = YoutubePlayerController(
       initialVideoId: videoID!,
       flags: YoutubePlayerFlags(
-        autoPlay: false,
+        autoPlay: true,
         enableCaption: true,
+        showLiveFullscreenButton: true,
       ),
     );
   }
@@ -72,6 +74,7 @@ class _CoursesDetailWidgetState extends State<CoursesDetailWidget> {
           child: CustomScrollView(
             slivers: [
               SliverAppBar(
+                iconTheme: IconThemeData(color: Colors.white),
                 //automaticallyImplyLeading: false,
                 elevation: 0,
                 backgroundColor: Colors.white,

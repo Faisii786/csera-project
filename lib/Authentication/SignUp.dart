@@ -1,56 +1,101 @@
-// ignore_for_file: must_be_immutable
-
 import 'package:csera_app/Authentication/SignIn.dart';
+import 'package:csera_app/screens/bottomNavBar.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../Controllers/passwordController.dart';
-import 'AuthFunctions.dart';
 
-class SignUpScreen extends StatelessWidget {
+class SignUpScreen extends StatefulWidget {
+  SignUpScreen({super.key});
+
+  @override
+  State<SignUpScreen> createState() => _SignUpScreenState();
+}
+
+class _SignUpScreenState extends State<SignUpScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
+  final TextEditingController firstNameController = TextEditingController();
+  final TextEditingController lastNameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   FirebaseAuth auth = FirebaseAuth.instance;
+
   PasswordController getxController = PasswordController();
-  AuthService _auth = AuthService();
 
-  SignUpScreen({super.key});
+  bool loading = false;
 
-  //Firebase SignUp
-  // Future<void> Signup() async {
-  //   try {
-  //     UserCredential userCredential = await auth.createUserWithEmailAndPassword(
-  //       email: emailController.text,
-  //       password: passwordController.text,
-  //     );
-  //     if (userCredential.user != null) {
-  //       Get.off(UserDetails());
-  //       Get.snackbar("success", "Account created Successfully",snackPosition: SnackPosition.TOP,duration: const Duration(seconds: 2),backgroundColor: Colors.green,colorText: Colors.black);
-  //
-  //     }
-  //   } catch (excep) {
-  //     Get.snackbar("error", "$excep",snackPosition: SnackPosition.TOP,duration: const Duration(seconds: 2),backgroundColor: Colors.red,colorText: Colors.black);
-  //
-  //   }
-  // }
-
-  //ValidatorFunctions
-  String? _validateEmail(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Please enter your email';
-    }
-    return null;
+  @override
+  void dispose() {
+    firstNameController.dispose();
+    lastNameController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
   }
 
-  String? _validatePassword(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Please enter your password';
+  void ValidateFunction() {
+    if (_formKey.currentState?.validate() ?? false) {
+      Register();
     }
-    return null;
+  }
+
+  Future<void> sendEmailVerification(User user) async {
+    if (!user.emailVerified) {
+      await user.sendEmailVerification();
+      print('Verification email sent to ${user.email}');
+    } else {
+      print('User is already verified.');
+    }
+  }
+
+  Future<void> Register() async {
+    try {
+      setState(() {
+        loading = true;
+      });
+
+      UserCredential userCredential = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(
+          email: emailController.text, password: passwordController.text);
+
+      await sendEmailVerification(userCredential.user!);
+
+      showSnackBar("Account Created Successfully");
+
+      // Check if the user is verified before navigating
+      if (userCredential.user!.emailVerified) {
+        Get.to(() => MyBottomNavbar());
+      } else {
+        showSnackBar("Please verify your email to continue");
+      }
+
+      setState(() {
+        loading = false;
+      });
+    } on FirebaseAuthException catch (e) {
+      print("Error creating account: $e");
+      showSnackBar("Failed to create account: $e");
+    }
+  }
+
+  // Function to validate email using a regular expression
+  bool isValidEmail(String email) {
+    final emailRegExp =
+    RegExp(r'^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$');
+    return emailRegExp.hasMatch(email);
+  }
+
+  // Snackbar function
+  void showSnackBar(String message) {
+    final snackBar = SnackBar(
+      content: Text(message),
+      duration: Duration(seconds: 4),
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
   @override
@@ -84,36 +129,37 @@ class SignUpScreen extends StatelessWidget {
                   height: 30,
                 ),
                 TextFormField(
+                  controller: firstNameController,
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: InputDecoration(
+                    labelText: 'First name',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                TextFormField(
+                  controller: lastNameController,
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: InputDecoration(
+                    labelText: 'Last name',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                TextFormField(
                   controller: emailController,
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
-                    fillColor: Colors.black,
                     labelText: 'Email',
-                    labelStyle: TextStyle(
-                        color: Colors.black), // Set label color to white
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide(
-                          color: Colors.black), // Set border color to white
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide(
-                          color: Colors
-                              .black), // Set enabled border color to white
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide(
-                          color: Colors
-                              .black), // Set focused border color to white
                     ),
                   ),
-                  style:
-                      TextStyle(color: Colors.black), // Set text color to white
-                  validator: _validateEmail,
                 ),
-
                 const SizedBox(height: 12),
                 Obx(() {
                   return TextFormField(
@@ -121,26 +167,9 @@ class SignUpScreen extends StatelessWidget {
                     controller: passwordController,
                     obscureText: getxController.obsecure.value,
                     decoration: InputDecoration(
-                      fillColor: Colors.black,
                       labelText: 'Password',
-                      labelStyle: TextStyle(
-                          color: Colors.black), // Set label color to white
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(
-                            color: Colors.black), // Set border color to white
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(
-                            color: Colors
-                                .black), // Set enabled border color to white
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(
-                            color: Colors
-                                .black), // Set focused border color to white
                       ),
                       suffixIcon: IconButton(
                         onPressed: () {
@@ -150,24 +179,15 @@ class SignUpScreen extends StatelessWidget {
                           getxController.obsecure.value
                               ? Icons.visibility_off
                               : Icons.visibility,
-                          color: Colors.black, // Set icon color to white
                         ),
                       ),
                     ),
-                    style: TextStyle(
-                        color: Colors.black), // Set text color to white
-                    validator: _validatePassword,
                   );
                 }),
                 const SizedBox(height: 30),
-                //elevated Button
+                // Elevated Button
                 ElevatedButton(
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      _auth.SignUp(
-                          emailController.text, passwordController.text);
-                    }
-                  },
+                  onPressed: loading ? null : ValidateFunction,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.black,
                     minimumSize: const Size(double.infinity, 50),
@@ -175,7 +195,11 @@ class SignUpScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(8.0),
                     ),
                   ),
-                  child: Text(
+                  child: loading
+                      ? CupertinoActivityIndicator(
+                    color: Colors.white,
+                  )
+                      : Text(
                     "Sign up",
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
@@ -184,14 +208,14 @@ class SignUpScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
-                //text Button
+                // Text Button
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       "Already have an account ! ",
-                      style:
-                          GoogleFonts.roboto(color: Colors.black, fontSize: 16),
+                      style: GoogleFonts.roboto(
+                          color: Colors.black, fontSize: 16),
                     ),
                     SizedBox(
                       width: 10,

@@ -1,5 +1,6 @@
 import 'package:csera_app/utility/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class whyCsera extends StatefulWidget {
@@ -61,133 +62,123 @@ class _whyCseraState extends State<whyCsera> {
         showFullText = false;
     }
 
-    return Row(
-      children: [
-        Align(
-          alignment: Alignment.centerLeft,
-          child: ClipOval(
-            child: CircleAvatar(
-              radius: 40,
-              backgroundImage: AssetImage(images[index]),
+    return Padding(
+      padding: const EdgeInsets.all(5.0),
+      child: Row(
+        children: [
+          Align(
+            alignment: Alignment.centerLeft,
+            child: ClipOval(
+              child: CircleAvatar(
+                radius: 40,
+                backgroundImage: AssetImage(images[index]),
+              ),
             ),
           ),
-        ),
-        const SizedBox(width: 16),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                titles[index],
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                descriptions[index],
-                style: TextStyle(fontSize: 15),
-                maxLines: showFullText ? null : 2,
-                overflow: TextOverflow.visible,
-              ),
-              const SizedBox(height: 8),
-              InkWell(
-                onTap: () {
-                  // Toggle the showFullText value on button press
-                  setState(() {
-                    switch (index) {
-                      case 0:
-                        showFullText1 = !showFullText1;
-                        break;
-                      case 1:
-                        showFullText2 = !showFullText2;
-                        break;
-                      case 2:
-                        showFullText3 = !showFullText3;
-                        break;
-                      case 3:
-                        showFullText4 = !showFullText4;
-                        break;
-                      case 4:
-                        showFullText5 = !showFullText5;
-                        break;
-                    }
-                  });
-                },
-                child: Text(
-                  showFullText ? 'View Less' : 'View More',
-                  style: TextStyle(
-                    color: Colors.blue,
-                    fontWeight: FontWeight.bold,
+          const SizedBox(width: 5),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  titles[index],
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  descriptions[index],
+                  style: TextStyle(fontSize: 15),
+                  maxLines: showFullText ? null : 2,
+                  overflow: TextOverflow.visible,
+                  textAlign: TextAlign.justify,
+                ),
+                const SizedBox(height: 8),
+                InkWell(
+                  onTap: () {
+                    setState(() {
+                      switch (index) {
+                        case 0:
+                          showFullText1 = !showFullText1;
+                          break;
+                        case 1:
+                          showFullText2 = !showFullText2;
+                          break;
+                        case 2:
+                          showFullText3 = !showFullText3;
+                          break;
+                        case 3:
+                          showFullText4 = !showFullText4;
+                          break;
+                        case 4:
+                          showFullText5 = !showFullText5;
+                          break;
+                      }
+                    });
+                  },
+                  child: Text(
+                    showFullText ? 'View Less' : 'View More',
+                    style: TextStyle(
+                      color: Colors.blue,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
-
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: CustomScrollView(
-          slivers: [
-            SliverAppBar(
-              backgroundColor: AppColors().BgColor,
-              expandedHeight: 120,
-              pinned: true,
-              flexibleSpace: FlexibleSpaceBar(
-                expandedTitleScale: 1,
-                titlePadding:
-                const EdgeInsets.symmetric(vertical: 25, horizontal: 10),
-                background: Image.asset(
-                  'assets/images/ShayanSection/ContainerPics/why.png',
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            SliverToBoxAdapter(
-              child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const SizedBox(height: 9,),
-                    // Title at the top left
-                    Text(
-                      "Why Csera?",
-                      style: GoogleFonts.anekLatin(
-                          fontSize: 30, fontWeight: FontWeight.bold,
-                      color: AppColors().AppBarColor),
-
-                    ),
-                    const SizedBox(height: 5),
-                    // Rows
-                    for (int i = 0; i < titles.length; i++) ...[
-                      buildRow(i),
-                      SizedBox(height: 16),
-                    ],
-                    Divider(),
-                    const SizedBox(height: 16),
-                    Center(
-                      child: Text(
-                        'CSERA PVT LTD',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.blue,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: (){Get.back();},
+          icon: Icon(Icons.arrow_back,color: AppColors().AppBarColor),
+        ),
+        title:    Text(
+          "Why Csera ?",
+          style: GoogleFonts.anekLatin(
+              fontSize: 30, fontWeight: FontWeight.bold,
+              color: AppColors().AppBarColor),
         ),
       ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+              Container(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  const SizedBox(height: 30),
+                  // Rows
+                  for (int i = 0; i < titles.length; i++) ...[
+                    buildRow(i),
+                    SizedBox(height: 16),
+                  ],
+                  Divider(),
+                  const SizedBox(height: 16),
+                  Center(
+                    child: Text(
+                      'CSERA PVT LTD',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.blue,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+        
+          ],
+        ),
+      )
     );
   }
 }
