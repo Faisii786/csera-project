@@ -62,7 +62,7 @@ class MyFooter extends StatelessWidget {
                     child: Icon(
                       FontAwesomeIcons.facebookF,
                       color: Colors.white.withOpacity(0.8),
-                      size: screenWidth * 0.08, // 5% of screen width
+                      size: screenWidth * 0.06, // 5% of screen width
                     ),
                   ),
 
@@ -73,7 +73,7 @@ class MyFooter extends StatelessWidget {
                     child: Icon(
                       FontAwesomeIcons.instagram,
                       color: Colors.white.withOpacity(0.8),
-                      size: screenWidth * 0.08, // 5% of screen width
+                      size: screenWidth * 0.06, // 5% of screen width
                     ),
                   ),
                   GestureDetector(
@@ -83,7 +83,7 @@ class MyFooter extends StatelessWidget {
                     child: Icon(
                       FontAwesomeIcons.xTwitter,
                       color: Colors.white.withOpacity(0.8),
-                      size: screenWidth * 0.08, // 5% of screen width
+                      size: screenWidth * 0.06, // 5% of screen width
                     ),
                   ),
                   GestureDetector(
@@ -93,7 +93,7 @@ class MyFooter extends StatelessWidget {
                     child: Icon(
                       FontAwesomeIcons.linkedin,
                       color: Colors.white.withOpacity(0.8),
-                      size: screenWidth * 0.08, // 5% of screen width
+                      size: screenWidth * 0.06, // 5% of screen width
                     ),
                   ),
                   GestureDetector(
@@ -103,7 +103,7 @@ class MyFooter extends StatelessWidget {
                     child: Icon(
                       FontAwesomeIcons.youtube,
                       color: Colors.white.withOpacity(0.8),
-                      size: screenWidth * 0.08, // 5% of screen width
+                      size: screenWidth * 0.06, // 5% of screen width
                     ),
                   ),
                 ],

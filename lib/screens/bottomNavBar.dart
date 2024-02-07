@@ -1,4 +1,5 @@
 import 'package:csera_app/screens/Dashboard.dart';
+import 'package:csera_app/screens/Profile.dart';
 import 'package:csera_app/screens/Services.dart';
 import 'package:csera_app/screens/projects.dart';
 import 'package:csera_app/utility/colors.dart';
@@ -27,7 +28,7 @@ class _MyBottomNavbarState extends State<MyBottomNavbar> {
             DashboardScreen(),
             ProjectsScreen(),
             ServicesScreen(),
-            Center(child: Text("Profile"))
+            ProfileScreen(),
           ],
         ),
         bottomNavigationBar: StylishBottomBar(
