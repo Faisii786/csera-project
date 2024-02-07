@@ -1,3 +1,4 @@
+import 'package:csera_app/Authentication/SignIn.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -29,15 +30,6 @@ class _ContactUsState extends State<ContactUs> {
     }
     return null;
   }
-
-  // String? validateEmail(String? value) {
-  //   if (value == null || value.isEmpty) {
-  //     return 'Email is required!';
-  //   } else if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value)) {
-  //     return 'Please enter a valid email address.';
-  //   }
-  //   return null;
-  // }
 
   String? validatePhone(String? value) {
     if (value == null || value.isEmpty) {
@@ -83,6 +75,7 @@ class _ContactUsState extends State<ContactUs> {
         isLoading = false;
       });
       if (response.statusCode == 200) {
+        Get.to(()=>SignIn());
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('Email Sent !'),
@@ -91,7 +84,6 @@ class _ContactUsState extends State<ContactUs> {
         );
       }
     }
-
   }
 
   @override
