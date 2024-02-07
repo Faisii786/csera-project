@@ -1,10 +1,13 @@
-import 'package:csera_app/screens/About%20section/whatisCsera.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:share/share.dart';
+
 import '../utility/colors.dart';
+import 'About section/whatisCsera.dart';
 import 'Questions.dart';
 import 'Splash Screen/wellcome_screen.dart';
 
@@ -16,12 +19,14 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  var userId = FirebaseAuth.instance.currentUser!.uid;
-  var useremail = FirebaseAuth.instance.currentUser!.email;
+  var userId = FirebaseAuth.instance.currentUser?.uid;
+  var useremail = FirebaseAuth.instance.currentUser?.email;
   bool loading = false;
 
   @override
   Widget build(BuildContext context) {
+    final loggedIn = userId != null && useremail != null;
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -35,28 +40,31 @@ class _ProfileScreenState extends State<ProfileScreen> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CircleAvatar(
-                    backgroundColor: AppColors().AppBarColor,
-                    radius: 70,
-                    child: Icon(Icons.person,size: 70,color: Colors.white,),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 20),
-              const Divider(color: Colors.grey),
-              _buildSection(
-                title: "Profile Information",
-                children: [
-                  _buildRow(label: "User-id", value: userId),
-                  _buildRow(label: "User-email", value: useremail!),
-                ],
-              ),
-              const SizedBox(height: 20),
-              const Divider(color: Colors.grey),
-              const SizedBox(height: 20),
+              if (loggedIn) ...[
+                // Display profile information if logged in
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CircleAvatar(
+                      backgroundColor: AppColors().AppBarColor,
+                      radius: 70,
+                      child: Icon(Icons.person, size: 70, color: Colors.white,),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 20),
+                const Divider(color: Colors.grey),
+                _buildSection(
+                  title: "Profile Information",
+                  children: [
+                    _buildRow(label: "User-id", value: userId!),
+                    _buildRow(label: "User-email", value: useremail!),
+                  ],
+                ),
+                const SizedBox(height: 20),
+                const Divider(color: Colors.grey),
+                const SizedBox(height: 20),
+              ],
               Text("Help and Support",style: const TextStyle(color: Colors.grey, fontSize: 15),),
               Column(
                 children: [
@@ -72,14 +80,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ],
                       )),
                   GestureDetector(
-                      onTap: (){ Get.to(()=>whatisCsera());},
+                      onTap: (){
+                        // Replace 'Your app description here' with your app's description
+                        Share.share('Check out this cool app: Your app description here');
+                      },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text("Share the Csera App",style: const TextStyle(color: Colors.black, fontSize: 20,fontWeight: FontWeight.bold),),
                           Align(
                               alignment: Alignment.centerRight,
-                              child: IconButton(onPressed: (){}, icon: Icon(Icons.arrow_forward,color: Colors.grey,))),
+                              child: IconButton(onPressed: (){
+                                Share.share('Check out this cool app: Your app description here');
+                              }, icon: Icon(Icons.arrow_forward,color: Colors.grey,))),
                         ],
                       )),
                   GestureDetector(
@@ -97,7 +110,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       )),
                 ],
               ),
-            
+
               const SizedBox(height: 40),
               ElevatedButton(
                 onPressed: () {
