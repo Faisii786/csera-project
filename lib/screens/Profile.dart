@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../utility/colors.dart';
+import 'Questions.dart';
 import 'Splash Screen/wellcome_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -82,7 +83,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ],
                       )),
                   GestureDetector(
-                      onTap: (){},
+                      onTap: (){
+                        Get.to(()=>Questions());
+                      },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
