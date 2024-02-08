@@ -37,7 +37,7 @@ class _SignInState extends State<SignIn> {
     }
   }
 
-  Future Login() async {
+  Future<void> Login() async {
     try {
       setState(() {
         loading = true;
@@ -51,23 +51,29 @@ class _SignInState extends State<SignIn> {
       emailController.clear();
       passwordController.clear();
       showSnakBar("Welcome !");
-      setState(() {
-        loading = false;
-      });
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'INVALID_LOGIN_CREDENTIALS') {
-        showSnakBar(
-            "Invalid Credentials ! Please enter valid email and password");
+      if (e.code == 'invalid-credential') {
+        showSnakBar("Please check your email and password");
+      } else if (e.code == "too-many-requests") {
+        showSnakBar("Too many attempts! Please try again later.");
       } else if (e.code == 'user-not-found') {
-        showSnakBar("Email does not found");
+        showSnakBar("Email not found. Please register or try a different email.");
       } else if (e.code == 'wrong-password') {
-        showSnakBar("Password is incorrect");
+        showSnakBar("Incorrect password. Please try again.");
+      } else {
+        showSnakBar("An unexpected error occurred. Please try again later.");
+        print("FirebaseAuthException caught: ${e.code}");
       }
+    } catch (e) {
+      print("Unexpected error: $e");
+      showSnakBar("An unexpected error occurred. Please try again later.");
+    } finally {
       setState(() {
         loading = false;
       });
     }
   }
+
 
   // Function to validate email using a regular expression
   bool isValidEmail(String email) {
